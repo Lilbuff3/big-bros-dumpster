@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#FF5F00" />
+  <title>Big Bros Dumpster Rentals | Fresno & Clovis Roll‑Off Dumpsters</title>
+  <meta name="description"
+    content="Big Bros Dumpster Rentals — 14 & 20 yard dumpsters with fast dispatch across Fresno/Clovis and the Central Valley. Driveway protection included. Call or text for a quick quote." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=JetBrains+Mono:wght@400..800&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+
+  <meta property="og:title" content="Big Bros Dumpster Rentals | Fresno &amp; Clovis" />
+  <meta property="og:description"
+    content="14 &amp; 20 yard dumpsters with fast dispatch. Call or text for a quick quote." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bigbrosdumpster.com/" />
+  <meta property="og:image" content="https://bigbrosdumpster.com/assets/dumpster.jpg" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Big Bros Dumpster Rentals",
+    "areaServed": ["Fresno, CA", "Clovis, CA", "Central Valley, CA"],
+    "telephone": "+1-559-495-8034",
+    "url": "https://bigbrosdumpster.com",
+    "image": "https://bigbrosdumpster.com/assets/dumpster.jpg",
+    "description": "14 & 20 yard roll-off dumpster rentals with fast dispatch in Fresno/Clovis and the Central Valley."
+  }
+  </script>
+</head>
+
+<body class="text-zinc-100 selection:bg-[var(--orange)] selection:text-black">
+  <a href="#main"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-black focus:text-white focus:border focus:border-zinc-700 focus:px-4 focus:py-2">Skip
+    to content</a>
+
+  <!-- Top Dispatch Bar -->
+  <div class="bg-[var(--orange)] text-black border-b border-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2">
+      <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex items-center gap-3 mono text-[10px] sm:text-[11px] font-extrabold tracking-[0.22em] uppercase">
+          <span class="inline-flex items-center gap-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-black/80"></span>
+            <span data-i18n="top.sameDay">Same‑Day Dispatch (when available): Fresno / Clovis</span>
+          </span>
+          <span class="hidden md:inline">●</span>
+          <span class="hidden md:inline" data-i18n="top.family">Local family‑owned • Hablamos Español</span>
+        </div>
+        <div class="flex items-center justify-between sm:justify-end gap-4">
+          <button id="langBtn"
+            class="mono text-[10px] font-extrabold tracking-[0.22em] uppercase border border-black/40 px-3 py-1 hover:bg-black/10 focus-ring"
+            aria-label="Toggle language">
+            EN / ES
+          </button>
+          <a id="topPhone"
+            class="mono text-[11px] sm:text-[12px] font-extrabold tracking-[0.22em] uppercase hover:underline"
+            href="tel:+15594958034">
+            <span class="hidden sm:inline" data-i18n="top.dispatchLine">Dispatch:</span>
+            <span class="ml-2">559‑495‑8034</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 bg-black/85 backdrop-blur border-b border-white/10">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="h-18 py-4 flex items-center justify-between">
+        <a href="#" class="flex items-baseline gap-2" aria-label="Big Bros Dumpster Rentals">
+          <span class="text-3xl sm:text-4xl font-black uppercase italic tracking-tighter">BIG BROS</span>
+          <span class="text-[var(--orange)] text-base sm:text-xl font-light tracking-[0.35em] uppercase">Rentals</span>
+        </a>
+
+        <div
+          class="hidden lg:flex items-center gap-10 mono text-[11px] font-extrabold tracking-[0.22em] uppercase text-zinc-400">
+          <a class="hover:text-[var(--orange)]" href="#sizes" data-i18n="nav.sizes">Sizes</a>
+          <a class="hover:text-[var(--orange)]" href="#booking" data-i18n="nav.booking">Book Now</a>
+          <a class="hover:text-[var(--orange)]" href="#pricing" data-i18n="nav.pricing">Pricing</a>
+          <a class="hover:text-[var(--orange)]" href="#area" data-i18n="nav.area">Service Area</a>
+          <a class="hover:text-[var(--orange)]" href="#faq" data-i18n="nav.faq">FAQ</a>
+          <button id="openQuote"
+            class="bg-[var(--orange)] text-black px-6 py-2 hover:bg-white active:scale-95 transition font-black"
+            data-i18n="nav.quote">Get Quote</button>
+        </div>
+
+        <div class="flex items-center gap-3 lg:hidden">
+          <button id="menuBtn" class="border border-zinc-800 px-3 py-2 hover:border-[var(--orange)] focus-ring"
+            aria-expanded="false" aria-controls="mobileMenu">
+            <span class="mono text-[11px] font-extrabold tracking-[0.22em] uppercase">Menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 py-4">
+        <div class="grid gap-3 mono text-[11px] font-extrabold tracking-[0.22em] uppercase text-zinc-300">
+          <a class="hover:text-[var(--orange)]" href="#sizes" data-i18n="nav.sizes">Sizes</a>
+          <a class="hover:text-[var(--orange)]" href="#booking" data-i18n="nav.booking">Book Now</a>
+          <a class="hover:text-[var(--orange)]" href="#pricing" data-i18n="nav.pricing">Pricing</a>
+          <a class="hover:text-[var(--orange)]" href="#area" data-i18n="nav.area">Service Area</a>
+          <a class="hover:text-[var(--orange)]" href="#faq" data-i18n="nav.faq">FAQ</a>
+          <button id="openQuoteMobile"
+            class="bg-[var(--orange)] text-black px-5 py-3 hover:bg-white transition font-black text-left"
+            data-i18n="nav.quote">Get Quote</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-18">
+
+    <!-- HERO -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <div class="lg:col-span-7 space-y-7">
+        <div class="flex items-center gap-4">
+          <span class="h-[2px] w-10 bg-[var(--orange)]"></span>
+          <span class="mono text-[10px] text-[var(--orange)] uppercase tracking-[0.35em]"
+            data-i18n="hero.kicker">Central Valley Dumpster Dispatch</span>
+        </div>
+
+        <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tighter italic">
+          <span data-i18n="hero.title1">Fast</span>
+          <span class="text-zinc-700" data-i18n="hero.title2">Drop‑Off</span><br />
+          <span data-i18n="hero.title3">No Runaround</span>
+        </h1>
+
+        <p class="text-lg sm:text-xl text-zinc-400 font-light max-w-2xl leading-relaxed" data-i18n="hero.sub">
+          14yd and 20yd dumpster rentals for Fresno & Clovis. Call or text the bros—quick answers, driveway
+          protection, and clean equipment.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-2">
+          <a id="callCta" href="tel:+15594958034"
+            class="bg-[var(--orange)] text-black px-7 py-4 font-black uppercase italic text-lg hover:bg-white transition focus-ring text-center"
+            data-i18n="hero.call">Call for a Quote</a>
+          <a id="textCta" href="#"
+            class="border border-zinc-800 px-7 py-4 font-black uppercase italic text-lg hover:border-[var(--orange)] hover:text-[var(--orange)] transition focus-ring text-center"
+            data-i18n="hero.text">Text the Bros</a>
+          <button id="scrollQuote"
+            class="border border-zinc-800 px-7 py-4 font-black uppercase italic text-lg hover:border-white hover:bg-white hover:text-black transition focus-ring"
+            data-i18n="hero.instant">Instant Quote Form</button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
+          <div class="border border-zinc-800 bg-zinc-950/40 p-4">
+            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="badges.direct">Talk
+              Direct</div>
+            <div class="font-bold uppercase italic" data-i18n="badges.noBroker">No broker call centers</div>
+          </div>
+          <div class="border border-zinc-800 bg-zinc-950/40 p-4">
+            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="badges.driveway">Driveway
+              Protection</div>
+            <div class="font-bold uppercase italic" data-i18n="badges.planks">Boards available on drop</div>
+          </div>
+          <div class="border border-zinc-800 bg-zinc-950/40 p-4">
+            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="badges.speed">Fast
+              Dispatch</div>
+            <div class="font-bold uppercase italic" data-i18n="badges.today">Same‑day when open</div>
+          </div>
+        </div>
+
+        <p class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-600 pt-2" data-i18n="hero.disclaimer">
+          Final pricing depends on debris type, weight, and location. We’ll confirm everything before dispatch.
+        </p>
+      </div>
+
+      <div class="lg:col-span-5 relative">
+        <div class="aspect-[4/5] bg-zinc-900 border border-zinc-800 overflow-hidden relative">
+          <img src="images/hero-dumpster.png" alt="Big Bros dumpster rental at residential home in Fresno"
+            class="w-full h-full object-cover" loading="eager" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+
+          <div class="absolute bottom-5 left-5 right-5 border border-white/10 bg-black/50 backdrop-blur-sm p-4">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <div class="mono text-[10px] text-[var(--orange)] uppercase tracking-[0.22em]">Featured Size</div>
+                <div class="font-black uppercase italic text-xl">14 Yard</div>
+                <div class="text-zinc-400 text-sm">Cleanouts • Small remodels • Most driveways</div>
+              </div>
+              <button
+                class="border border-zinc-700 hover:border-[var(--orange)] px-4 py-2 mono text-[10px] uppercase tracking-[0.22em]"
+                id="select20" data-size="14">Select</button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="absolute -bottom-4 -right-3 bg-[var(--orange)] text-black px-4 py-3 mono text-[10px] font-extrabold tracking-[0.22em] uppercase">
+          <span data-i18n="hero.ribbon">Dispatch Ready</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAMILY / TRUST -->
+    <section id="about" class="grid grid-cols-1 lg:grid-cols-2 gap-px bg-zinc-800 border border-zinc-800">
+      <div class="bg-[#0F0F0F] p-8 sm:p-12 lg:p-14 space-y-6">
+        <div class="border-l-4 border-[var(--orange)] pl-6">
+          <h2 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter" data-i18n="about.title">Ask the
+            Bros</h2>
+          <p class="mono text-[11px] text-[var(--orange)] uppercase tracking-[0.22em] mt-2" data-i18n="about.kicker">
+            Personal service • Straight answers</p>
+        </div>
+
+        <p class="text-zinc-400 text-lg leading-relaxed" data-i18n="about.body">
+          When you call, you’re talking to the bros—not the brosker. We’ll help you choose the right size, avoid
+          overloading, and keep your project moving.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-6 pt-2">
+          <div class="space-y-2">
+            <div class="w-10 h-10 border border-zinc-800 flex items-center justify-center">
+              <svg class="w-5 h-5 text-[var(--orange)]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z" />
+              </svg>
+            </div>
+            <div class="font-bold uppercase italic" data-i18n="about.card1Title">Driveway‑First</div>
+            <div class="text-zinc-500 text-sm" data-i18n="about.card1Body">We can set boards under the wheels to help
+              protect concrete/asphalt.</div>
+          </div>
+          <div class="space-y-2">
+            <div class="w-10 h-10 border border-zinc-800 flex items-center justify-center">
+              <svg class="w-5 h-5 text-[var(--orange)]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 1 1 18 0z" />
+                <path d="M12 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+              </svg>
+            </div>
+            <div class="font-bold uppercase italic" data-i18n="about.card2Title">Local Routes</div>
+            <div class="text-zinc-500 text-sm" data-i18n="about.card2Body">We know Fresno/Clovis streets, HOA quirks,
+              and jobsite access.</div>
+          </div>
+        </div>
+
+        <div class="border border-zinc-800 bg-black/25 p-4">
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="about.tipKicker">Tip that
+            saves money</div>
+          <div class="text-zinc-300" data-i18n="about.tipBody">Tell us your debris type (roofing, household, concrete,
+            yard waste). It changes disposal costs and the safest load level.</div>
+        </div>
+      </div>
+
+      <div class="bg-zinc-900 min-h-[420px] relative overflow-hidden">
+        <img src="images/family-photo.png" alt="Big Bros family-owned dumpster rental team in Fresno"
+          class="w-full h-full object-cover" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <div class="mono text-[10px] text-[var(--orange)] uppercase tracking-[0.35em]">Family Owned & Operated</div>
+          <div class="mt-2 text-xl sm:text-2xl font-black uppercase italic">Your Local Dumpster Team</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIZES -->
+    <section id="sizes" class="space-y-8">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h2 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter" data-i18n="sizes.title">Dumpster
+            Sizes</h2>
+          <p class="mono text-[11px] text-zinc-500 uppercase tracking-[0.22em]" data-i18n="sizes.kicker">Choose a size,
+            then request exact pricing</p>
+        </div>
+        <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500">
+          <span class="inline-flex items-center gap-2"><span
+              class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span
+              data-i18n="sizes.avail">Availability updates by phone/text</span></span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <article
+          class="group bg-[#0F0F0F] border border-zinc-800 hover:border-[var(--orange)] transition p-6 sm:p-8 flex flex-col gap-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-3xl sm:text-4xl font-black uppercase italic">14 Yard</h3>
+              <div class="mono text-[10px] text-[var(--orange)] uppercase tracking-[0.35em]" data-i18n="sizes.14tag">
+                Great for cleanouts & small remodels</div>
+            </div>
+            <div class="text-right">
+              <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="sizes.starting">Typical
+                range</div>
+              <div class="text-2xl font-black italic" aria-label="Typical price range">$399</div>
+            </div>
+          </div>
+
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 mono text-[11px] uppercase tracking-[0.18em] text-zinc-400">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                data-i18n="sizes.common1">Garage/yard cleanup</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                data-i18n="sizes.common2">Roofing (ask)</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                data-i18n="sizes.common3">Fits most driveways</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                data-i18n="sizes.common4">Fast drop & pickup</span></li>
+          </ul>
+
+          <div class="border border-zinc-800 bg-black/20 p-4">
+            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="sizes.tip">Best when you
+              want to avoid overpaying</div>
+            <div class="text-zinc-400 text-sm" data-i18n="sizes.14desc">A solid choice for most homeowner jobs. If
+              you’re unsure, start here and we’ll advise.</div>
+          </div>
+
+          <button
+            class="w-full py-3 border border-zinc-700 hover:bg-white hover:text-black hover:border-white transition font-black uppercase italic"
+            data-size-pick="14" data-i18n="sizes.select">Select 14 Yard</button>
+        </article>
+
+        <article
+          class="group bg-[#0F0F0F] border border-zinc-800 hover:border-[var(--orange)] transition p-6 sm:p-8 flex flex-col gap-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-3xl sm:text-4xl font-black uppercase italic">20 Yard</h3>
+              <div class="mono text-[10px] text-[var(--orange)] uppercase tracking-[0.35em]" data-i18n="sizes.20tag">
+                Renovations, big cleanouts, light demo</div>
+            </div>
+            <div class="text-right">
+              <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="sizes.starting">Typical
+                range</div>
+              <div class="text-2xl font-black italic" aria-label="Typical price range">$499</div>
+            </div>
+          </div>
+
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 mono text-[11px] uppercase tracking-[0.18em] text-zinc-400">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                data-i18n="sizes.common5">Remodel debris</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                data-i18n="sizes.common6">Tenant cleanouts</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                data-i18n="sizes.common7">Contractor favorite</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                data-i18n="sizes.common8">More volume, same simplicity</span></li>
+          </ul>
+
+          <div class="border border-zinc-800 bg-black/20 p-4">
+            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="sizes.tip2">Best when you
+              know you have volume</div>
+            <div class="text-zinc-400 text-sm" data-i18n="sizes.20desc">Ideal for remodels and major cleanouts. We’ll
+              confirm placement space before drop‑off.</div>
+          </div>
+
+          <button
+            class="w-full py-3 border border-zinc-700 hover:bg-white hover:text-black hover:border-white transition font-black uppercase italic"
+            data-size-pick="20" data-i18n="sizes.select20">Select 20 Yard</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- BOOKING CALENDAR -->
+    <section id="booking" class="space-y-8">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h2 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter">Book Your Dumpster</h2>
+          <p class="mono text-[11px] text-zinc-500 uppercase tracking-[0.22em]">24/7 delivery • Select your date & time
+          </p>
+        </div>
+        <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500">
+          <span class="inline-flex items-center gap-2"><span
+              class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span>Online booking
+              available</span></span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Calendar Widget -->
+        <div class="lg:col-span-7 border border-zinc-800 bg-[#0F0F0F] p-6">
+          <div class="flex items-center justify-between mb-6">
+            <button id="prevMonth"
+              class="border border-zinc-700 hover:border-[var(--orange)] px-4 py-2 mono text-[11px] uppercase tracking-[0.22em]">←
+              Prev</button>
+            <div id="calendarMonth" class="text-2xl font-black uppercase italic"></div>
+            <button id="nextMonth"
+              class="border border-zinc-700 hover:border-[var(--orange)] px-4 py-2 mono text-[11px] uppercase tracking-[0.22em]">Next
+              →</button>
+          </div>
+
+          <div class="grid grid-cols-7 gap-1 mb-2">
+            <div class="text-center mono text-[10px] text-zinc-500 uppercase py-2">Sun</div>
+            <div class="text-center mono text-[10px] text-zinc-500 uppercase py-2">Mon</div>
+            <div class="text-center mono text-[10px] text-zinc-500 uppercase py-2">Tue</div>
+            <div class="text-center mono text-[10px] text-zinc-500 uppercase py-2">Wed</div>
+            <div class="text-center mono text-[10px] text-zinc-500 uppercase py-2">Thu</div>
+            <div class="text-center mono text-[10px] text-zinc-500 uppercase py-2">Fri</div>
+            <div class="text-center mono text-[10px] text-zinc-500 uppercase py-2">Sat</div>
+          </div>
+          <div id="calendarDays" class="grid grid-cols-7 gap-1"></div>
+        </div>
+
+        <!-- Time Slots & Booking Summary -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="border border-zinc-800 bg-black/20 p-6">
+            <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--orange)]">Selected Date</div>
+            <div id="selectedDate" class="mt-2 text-2xl font-black uppercase italic">Select a date</div>
+          </div>
+
+          <div class="border border-zinc-800 bg-black/20 p-6">
+            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500 mb-4">Choose Delivery Time (1 hour
+              window)</div>
+            <div id="timeSlots" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="06:00">6:00 AM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="07:00">7:00 AM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="08:00">8:00 AM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="09:00">9:00 AM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="10:00">10:00 AM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="11:00">11:00 AM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="12:00">12:00 PM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="13:00">1:00 PM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="14:00">2:00 PM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="15:00">3:00 PM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="16:00">4:00 PM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="17:00">5:00 PM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="18:00">6:00 PM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="19:00">7:00 PM</button>
+              <button type="button"
+                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
+                data-time="20:00">8:00 PM</button>
+            </div>
+            <p class="mt-3 mono text-[10px] uppercase tracking-[0.22em] text-zinc-600">Evening/night slots available •
+              We deliver 24/7</p>
+          </div>
+
+          <div class="border border-zinc-800 bg-black/20 p-6">
+            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500 mb-3">Choose Dumpster Size</div>
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button"
+                class="bookingSizeBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
+                data-size="14">
+                <div class="font-black uppercase italic text-xl">14 Yard</div>
+                <div class="mono text-[10px] text-zinc-500">$399</div>
+              </button>
+              <button type="button"
+                class="bookingSizeBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
+                data-size="20">
+                <div class="font-black uppercase italic text-xl">20 Yard</div>
+                <div class="mono text-[10px] text-zinc-500">$499</div>
+              </button>
+            </div>
+          </div>
+
+          <a id="bookNowBtn" href="#" target="_blank"
+            class="block w-full bg-[var(--orange)] text-black py-5 text-center font-black uppercase italic text-xl hover:bg-white transition">
+            Book Now via Square
+          </a>
+          <p class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-600 text-center">Secure payment • Instant
+            confirmation</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING / QUICK QUOTE -->
+    <section id="pricing" class="space-y-8">
+      <div class="bg-zinc-900/40 border border-zinc-800 p-6 sm:p-10 relative overflow-hidden">
+        <div class="absolute inset-0 grid-overlay opacity-[0.05]"></div>
+        <div
+          class="absolute top-0 right-0 p-6 opacity-[0.06] font-black text-7xl sm:text-9xl italic uppercase select-none">
+          QUOTE</div>
+
+        <div class="relative">
+          <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 class="text-4xl sm:text-5xl font-black uppercase italic" data-i18n="quote.title">Get a Fast Quote</h2>
+              <p class="text-zinc-400" data-i18n="quote.sub">Answer 4 quick questions. We’ll reply by text/call with the
+                exact price and availability.</p>
+            </div>
+            <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="quote.hint">Pro tip:
+              include debris type to avoid surprise disposal fees.</div>
+          </div>
+
+          <div class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-7">
+              <div class="flex items-center justify-between mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">
+                <div><span data-i18n="quote.step">Step</span> <span id="stepNum">1</span>/4</div>
+                <div id="stepLabel" class="text-zinc-400">Location</div>
+              </div>
+              <div class="mt-3 h-1 bg-zinc-800">
+                <div id="progress" class="h-full bg-[var(--orange)]" style="width: 25%"></div>
+              </div>
+
+              <form id="quoteForm" class="mt-6 space-y-5" autocomplete="on">
+                <!-- Step 1 -->
+                <div class="step" data-step="1">
+                  <label class="block text-xl sm:text-2xl font-black uppercase italic" for="zip"
+                    data-i18n="quote.zipLabel">Delivery ZIP Code</label>
+                  <input id="zip" name="zip" inputmode="numeric" maxlength="5" placeholder="93611"
+                    class="w-full bg-black border border-zinc-800 p-4 sm:p-5 text-2xl sm:text-3xl font-black tracking-widest focus:border-[var(--orange)] outline-none placeholder:text-zinc-800 uppercase" />
+                  <p id="zipHelp" class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600"
+                    data-i18n="quote.zipHelp">We mainly service Fresno/Clovis + nearby. If you’re outside, we’ll
+                    confirm.</p>
+                  <div id="zipStatus" class="hidden mt-3 border border-zinc-800 bg-black/30 p-3 text-sm"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step hidden" data-step="2">
+                  <div class="flex items-end justify-between">
+                    <label class="block text-xl sm:text-2xl font-black uppercase italic"
+                      data-i18n="quote.sizeLabel">Choose Size</label>
+                    <button type="button"
+                      class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500 hover:text-white" data-prev
+                      data-i18n="quote.back">← Back</button>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <button type="button"
+                      class="sizeBtn p-5 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
+                      data-value="14">
+                      <div class="font-black uppercase italic text-2xl">14 Yard</div>
+                      <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="quote.size14">
+                        Cleanouts • small remodels</div>
+                    </button>
+                    <button type="button"
+                      class="sizeBtn p-5 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
+                      data-value="20">
+                      <div class="font-black uppercase italic text-2xl">20 Yard</div>
+                      <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="quote.size20">
+                        Renovations • big volume</div>
+                    </button>
+                  </div>
+                  <input type="hidden" id="size" name="size" value="" />
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step hidden" data-step="3">
+                  <div class="flex items-end justify-between">
+                    <label class="block text-xl sm:text-2xl font-black uppercase italic"
+                      data-i18n="quote.debrisLabel">Debris Type</label>
+                    <button type="button"
+                      class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500 hover:text-white" data-prev
+                      data-i18n="quote.back">← Back</button>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button type="button"
+                      class="debrisBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left font-bold uppercase italic text-sm transition"
+                      data-value="Household junk" data-i18n="debris.household">Household junk</button>
+                    <button type="button"
+                      class="debrisBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left font-bold uppercase italic text-sm transition"
+                      data-value="Construction debris" data-i18n="debris.construction">Construction debris</button>
+                    <button type="button"
+                      class="debrisBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left font-bold uppercase italic text-sm transition"
+                      data-value="Yard waste" data-i18n="debris.yard">Yard waste</button>
+                    <button type="button"
+                      class="debrisBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left font-bold uppercase italic text-sm transition"
+                      data-value="Concrete / dirt (heavy)" data-i18n="debris.heavy">Concrete / dirt (heavy)</button>
+                  </div>
+                  <input type="hidden" id="debris" name="debris" value="" />
+
+                  <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <label class="block">
+                      <span class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500"
+                        data-i18n="quote.when">When do you need it?</span>
+                      <input id="date" name="date" type="date"
+                        class="mt-2 w-full bg-black border border-zinc-800 p-4 focus:border-[var(--orange)] outline-none" />
+                    </label>
+                    <label class="block">
+                      <span class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500"
+                        data-i18n="quote.where">Drop location</span>
+                      <select id="placement" name="placement"
+                        class="mt-2 w-full bg-black border border-zinc-800 p-4 focus:border-[var(--orange)] outline-none">
+                        <option value="Driveway" data-i18n="place.driveway">Driveway</option>
+                        <option value="Street (may require permit)" data-i18n="place.street">Street (may require permit)
+                        </option>
+                        <option value="Jobsite" data-i18n="place.jobsite">Jobsite</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  <p class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600" data-i18n="quote.permitNote">If
+                    it goes on a public street, check city permit rules. We can share what typically works in
+                    Fresno/Clovis.</p>
+
+                  <div class="pt-2">
+                    <button type="button" id="toStep4"
+                      class="w-full bg-[var(--orange)] text-black py-4 font-black uppercase italic text-lg hover:bg-white transition">Next
+                      →</button>
+                  </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step hidden" data-step="4">
+                  <div class="flex items-end justify-between">
+                    <label class="block text-xl sm:text-2xl font-black uppercase italic"
+                      data-i18n="quote.contact">Contact Info</label>
+                    <button type="button"
+                      class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500 hover:text-white" data-prev
+                      data-i18n="quote.back">← Back</button>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <label class="block">
+                      <span class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500"
+                        data-i18n="quote.name">Name</span>
+                      <input id="name" name="name" placeholder=""
+                        class="mt-2 w-full bg-black border border-zinc-800 p-4 focus:border-[var(--orange)] outline-none" />
+                    </label>
+                    <label class="block">
+                      <span class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500"
+                        data-i18n="quote.phone">Phone (text OK)</span>
+                      <input id="phone" name="phone" inputmode="tel" placeholder="559..."
+                        class="mt-2 w-full bg-black border border-zinc-800 p-4 focus:border-[var(--orange)] outline-none" />
+                    </label>
+                  </div>
+                  <label class="block">
+                    <span class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500"
+                      data-i18n="quote.notes">Notes (gate code, items, etc.)</span>
+                    <textarea id="notes" name="notes" rows="3"
+                      class="mt-2 w-full bg-black border border-zinc-800 p-4 focus:border-[var(--orange)] outline-none"
+                      placeholder=""></textarea>
+                  </label>
+
+                  <div class="border border-zinc-800 bg-black/30 p-4">
+                    <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="quote.summary">
+                      Summary</div>
+                    <pre id="summary" class="mt-2 whitespace-pre-wrap text-zinc-200 text-sm"></pre>
+                    <div class="mt-3 flex flex-col sm:flex-row gap-3">
+                      <button type="submit"
+                        class="flex-1 bg-[var(--orange)] text-black py-4 font-black uppercase italic text-lg hover:bg-white transition"
+                        data-i18n="quote.send">Send Request</button>
+                      <button type="button" id="copyBtn"
+                        class="flex-1 border border-zinc-800 py-4 font-black uppercase italic text-lg hover:border-white hover:bg-white hover:text-black transition"
+                        data-i18n="quote.copy">Copy Details</button>
+                    </div>
+                    <p class="mt-3 mono text-[11px] uppercase tracking-[0.22em] text-zinc-600"
+                      data-i18n="quote.sendNote">Submitting will open your text or email app with the request
+                      pre‑filled.</p>
+                  </div>
+                </div>
+
+                <div class="pt-2">
+                  <button type="button" id="nextBtn"
+                    class="w-full bg-[var(--orange)] text-black py-4 font-black uppercase italic text-lg hover:bg-white transition"
+                    data-i18n="quote.next">Next →</button>
+                </div>
+              </form>
+            </div>
+
+            <aside class="lg:col-span-5 space-y-4">
+              <div class="border border-zinc-800 bg-black/20 p-6">
+                <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--orange)]" data-i18n="pricing.head">
+                  How pricing typically works</div>
+                <h3 class="mt-2 text-2xl font-black uppercase italic" data-i18n="pricing.title">Transparent, job‑based
+                  quotes</h3>
+                <p class="mt-3 text-zinc-400" data-i18n="pricing.body">Disposal costs can change by material (household
+                  vs. construction vs. heavy). We price fairly when we know what you’re tossing and where it’s going.
+                </p>
+                <ul class="mt-4 space-y-2 mono text-[11px] uppercase tracking-[0.18em] text-zinc-400">
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                      data-i18n="pricing.b1">Simple scheduling</span></li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                      data-i18n="pricing.b2">Clear weight guidance</span></li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                      data-i18n="pricing.b3">No surprise pickups</span></li>
+                </ul>
+              </div>
+
+              <div class="border border-zinc-800 bg-black/20 p-6">
+                <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="rules.head">Common
+                  restrictions</div>
+                <div class="mt-2 text-zinc-300" data-i18n="rules.body">Most haulers can’t accept hazardous items
+                  (paint/chemicals), batteries, and some appliances without extra steps. Ask us—we’ll point you to the
+                  right disposal option.</div>
+              </div>
+
+              <div class="border border-zinc-800 bg-black/20 p-6">
+                <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="cta.side">Need it
+                  today?</div>
+                <div class="mt-2 flex flex-col gap-3">
+                  <a id="callSide" href="tel:+15594958034"
+                    class="bg-white text-black py-3 text-center font-black uppercase italic hover:bg-[var(--orange)] transition focus-ring"
+                    data-i18n="cta.call">Call the bros</a>
+                  <a id="textSide" href="sms:+15594958034"
+                    class="border border-zinc-800 py-3 text-center font-black uppercase italic hover:border-[var(--orange)] hover:text-[var(--orange)] transition focus-ring"
+                    data-i18n="cta.text">Text the bros</a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE AREA -->
+    <section id="area" class="space-y-8">
+      <div>
+        <h2 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter" data-i18n="area.title">Service
+          Area</h2>
+        <p class="mono text-[11px] text-zinc-500 uppercase tracking-[0.22em]" data-i18n="area.kicker">Fresno/Clovis core
+          + nearby Central Valley cities</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 border border-zinc-800 bg-[#0F0F0F] overflow-hidden">
+          <iframe title="Service area map" class="w-full h-[360px]" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Fresno%2C%20CA&output=embed"></iframe>
+        </div>
+        <div class="lg:col-span-5 space-y-4">
+          <div class="border border-zinc-800 bg-black/20 p-6">
+            <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--orange)]" data-i18n="area.listHead">
+              Common routes</div>
+            <div class="mt-3 grid grid-cols-2 gap-2 text-zinc-300">
+              <div class="border border-zinc-800 bg-black/30 p-3">Fresno</div>
+              <div class="border border-zinc-800 bg-black/30 p-3">Clovis</div>
+              <div class="border border-zinc-800 bg-black/30 p-3">Sanger</div>
+              <div class="border border-zinc-800 bg-black/30 p-3">Selma</div>
+              <div class="border border-zinc-800 bg-black/30 p-3">Kerman</div>
+              <div class="border border-zinc-800 bg-black/30 p-3">Madera (ask)</div>
+            </div>
+            <p class="mt-4 text-zinc-500 text-sm" data-i18n="area.note">Not listed? Send your ZIP—we’ll confirm quickly.
+            </p>
+          </div>
+
+          <div class="border border-zinc-800 bg-black/20 p-6">
+            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="area.slots">Need a
+              dumpster?</div>
+            <p class="mt-2 text-zinc-400 text-sm" data-i18n="area.seo">Add dedicated pages later for “Dumpster rental
+              Fresno”, “Dumpster rental Clovis”, and contractor services. It’s the #1 lever for ranking and inbound
+              calls.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="space-y-8">
+      <div>
+        <h2 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter" data-i18n="process.title">How It
+          Works</h2>
+        <p class="mono text-[11px] text-zinc-500 uppercase tracking-[0.22em]" data-i18n="process.kicker">Simple flow.
+          Clear communication.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="border border-zinc-800 bg-[#0F0F0F] p-6">
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--orange)]">01</div>
+          <div class="mt-2 font-black uppercase italic text-2xl" data-i18n="process.s1">Request</div>
+          <div class="mt-2 text-zinc-400" data-i18n="process.s1b">Call/text or use the quote form. We’ll confirm size +
+            debris type.</div>
+        </div>
+        <div class="border border-zinc-800 bg-[#0F0F0F] p-6">
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--orange)]">02</div>
+          <div class="mt-2 font-black uppercase italic text-2xl" data-i18n="process.s2">Drop‑Off</div>
+          <div class="mt-2 text-zinc-400" data-i18n="process.s2b">We coordinate the window and placement. Driveway
+            boards if needed.</div>
+        </div>
+        <div class="border border-zinc-800 bg-[#0F0F0F] p-6">
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--orange)]">03</div>
+          <div class="mt-2 font-black uppercase italic text-2xl" data-i18n="process.s3">Load</div>
+          <div class="mt-2 text-zinc-400" data-i18n="process.s3b">Keep debris level with the top rails. Heavy materials:
+            ask first.</div>
+        </div>
+        <div class="border border-zinc-800 bg-[#0F0F0F] p-6">
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--orange)]">04</div>
+          <div class="mt-2 font-black uppercase italic text-2xl" data-i18n="process.s4">Pickup</div>
+          <div class="mt-2 text-zinc-400" data-i18n="process.s4b">Text us when ready. We schedule pickup and handle
+            disposal.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="space-y-6">
+      <div>
+        <h2 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter" data-i18n="faq.title">FAQ</h2>
+        <p class="mono text-[11px] text-zinc-500 uppercase tracking-[0.22em]" data-i18n="faq.kicker">Questions we hear
+          every day</p>
+      </div>
+
+      <div class="space-y-3">
+        <details class="faq border border-zinc-800 bg-[#0F0F0F] p-5">
+          <summary class="cursor-pointer font-black uppercase italic text-xl" data-i18n="faq.q1">How long can I keep the
+            dumpster?</summary>
+          <div class="mt-3 text-zinc-400" data-i18n="faq.a1">Most customers keep it for a few days to a week. Tell us
+            your timeline—we’ll quote the cleanest option.</div>
+        </details>
+        <details class="faq border border-zinc-800 bg-[#0F0F0F] p-5">
+          <summary class="cursor-pointer font-black uppercase italic text-xl" data-i18n="faq.q2">Can I put it on the
+            street?</summary>
+          <div class="mt-3 text-zinc-400" data-i18n="faq.a2">Sometimes—depending on the city and street rules. If you
+            need street placement, we’ll tell you what to check for permits.</div>
+        </details>
+        <details class="faq border border-zinc-800 bg-[#0F0F0F] p-5">
+          <summary class="cursor-pointer font-black uppercase italic text-xl" data-i18n="faq.q3">What can’t go in the
+            dumpster?</summary>
+          <div class="mt-3 text-zinc-400" data-i18n="faq.a3">Hazardous waste (chemicals/paint), batteries, and certain
+            appliances may require special handling. Ask us—we’ll guide you.</div>
+        </details>
+        <details class="faq border border-zinc-800 bg-[#0F0F0F] p-5">
+          <summary class="cursor-pointer font-black uppercase italic text-xl" data-i18n="faq.q4">Do you do same‑day?
+          </summary>
+          <div class="mt-3 text-zinc-400" data-i18n="faq.a4">When inventory is open, yes. Best move is to call or text
+            with your ZIP, size, and debris type.</div>
+        </details>
+      </div>
+
+      <div
+        class="border border-zinc-800 bg-black/20 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="faq.ctaKicker">Still have
+            questions?</div>
+          <div class="font-black uppercase italic text-2xl" data-i18n="faq.ctaTitle">Text us a photo of the pile</div>
+          <div class="text-zinc-400" data-i18n="faq.ctaBody">We’ll recommend the right size and keep you from paying for
+            the wrong one.</div>
+        </div>
+        <a id="textCta2" href="#"
+          class="bg-[var(--orange)] text-black px-6 py-4 font-black uppercase italic hover:bg-white transition focus-ring"
+          data-i18n="faq.text">Text the Bros</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-black border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div class="md:col-span-2 space-y-4">
+        <div class="flex items-baseline gap-2">
+          <span class="text-3xl sm:text-4xl font-black uppercase italic tracking-tighter">BIG BROS</span>
+          <span class="text-[var(--orange)] text-base sm:text-xl font-light tracking-[0.35em] uppercase">Rentals</span>
+        </div>
+        <p class="text-zinc-500 max-w-md" data-i18n="footer.desc">Dumpster rentals for Fresno/Clovis and the Central
+          Valley. Family-owned, fast communication, jobsite-ready.</p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="mono text-[10px] text-[var(--orange)] uppercase tracking-[0.22em]" data-i18n="footer.links">Links
+        </div>
+        <div class="grid gap-2 mono text-[11px] uppercase tracking-[0.22em] text-zinc-400">
+          <a href="#sizes" class="hover:text-white" data-i18n="nav.sizes">Sizes</a>
+          <a href="#pricing" class="hover:text-white" data-i18n="nav.pricing">Pricing</a>
+          <a href="#area" class="hover:text-white" data-i18n="nav.area">Service Area</a>
+          <a href="#faq" class="hover:text-white" data-i18n="nav.faq">FAQ</a>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <div class="mono text-[10px] text-[var(--orange)] uppercase tracking-[0.22em]" data-i18n="footer.contact">
+          Contact</div>
+        <div class="text-2xl font-black uppercase italic">559‑495‑8034</div>
+        <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600" data-i18n="footer.hours">Hours:
+          call/text for dispatch windows</div>
+        <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600">© <span id="year"></span> Big Bros
+          Dumpster Rentals</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 bg-black/90 backdrop-blur border-t border-white/10 lg:hidden">
+    <div class="max-w-7xl mx-auto px-4 py-3 grid grid-cols-3 gap-2">
+      <a id="callSticky" href="tel:+15594958034"
+        class="text-center bg-white text-black py-3 font-black uppercase italic">Call</a>
+      <a id="textSticky" href="#" class="text-center border border-zinc-800 py-3 font-black uppercase italic">Text</a>
+      <button id="quoteSticky"
+        class="text-center bg-[var(--orange)] text-black py-3 font-black uppercase italic">Quote</button>
+    </div>
+  </div>
+
+  <!-- Quote Modal (quick jump) -->
+  <div id="quoteModal" class="hidden fixed inset-0 z-[70]">
+    <div class="absolute inset-0 bg-black/70" data-close></div>
+    <div class="absolute inset-x-0 top-10 sm:top-16 mx-auto max-w-2xl px-4">
+      <div class="border border-zinc-800 bg-[#0B0B0B] shadow-2xl">
+        <div class="flex items-center justify-between p-4 border-b border-zinc-800">
+          <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="modal.title">Jump to Quote
+            Form</div>
+          <button
+            class="border border-zinc-800 px-3 py-2 mono text-[11px] uppercase tracking-[0.22em] hover:border-white"
+            data-close>Close</button>
+        </div>
+        <div class="p-5">
+          <p class="text-zinc-400" data-i18n="modal.body">We’ll scroll you to the quote section. If you prefer,
+            call/Text the Bros for fastest response.</p>
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <button id="modalGo" class="bg-[var(--orange)] text-black py-3 font-black uppercase italic"
+              data-i18n="modal.go">Go to Form</button>
+            <a id="modalCall" href="tel:+15594958034"
+              class="bg-white text-black py-3 font-black uppercase italic text-center" data-i18n="modal.call">Call</a>
+            <a id="modalText" href="#" class="border border-zinc-800 py-3 font-black uppercase italic text-center"
+              data-i18n="modal.text">Text</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

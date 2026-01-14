@@ -1,0 +1,8 @@
+# robots.txt for Big Bros Dumpster Rentals
+# https://bigbrosdumpster.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://bigbrosdumpster.com/sitemap.xml
