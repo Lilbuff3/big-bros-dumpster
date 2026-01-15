@@ -6,7 +6,7 @@ const BUSINESS = {
     phoneTel: "+15594958034",
     smsNumber: "+15594958034",
     email: "will@bigbrosdumpster.com",
-    googleReviewUrl: "https://g.page/r/YOUR_REVIEW_LINK_HERE/review"
+    googleReviewUrl: "https://g.page/r/CXZ1QsLG5e_dEBM/review"
 };
 
 // -----------------------------
