@@ -435,12 +435,6 @@
             <div id="timeSlots" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
               <button type="button"
                 class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="06:00">6:00 AM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="07:00">7:00 AM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
                 data-time="08:00">8:00 AM</button>
               <button type="button"
                 class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
@@ -454,64 +448,41 @@
               <button type="button"
                 class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
                 data-time="12:00">12:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="13:00">1:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="14:00">2:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="15:00">3:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="16:00">4:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="17:00">5:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="18:00">6:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="19:00">7:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="20:00">8:00 PM</button>
-            </div>
-            <p class="mt-3 mono text-[10px] uppercase tracking-[0.22em] text-zinc-600" data-i18n="booking.timeNote">
-              Evening/night slots available •
-              We deliver 24/7</p>
-          </div>
-
-          <div class="border border-zinc-800 bg-black/20 p-6">
-            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500 mb-3" data-i18n="booking.sizePrompt">
-              Choose Dumpster Size</div>
-            <div class="grid grid-cols-2 gap-3">
-              <button type="button"
-                class="bookingSizeBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
-                data-size="14">
-                <div class="font-black uppercase italic text-xl">14 Yard</div>
-                <div class="mono text-[10px] text-zinc-500">$399</div>
-              </button>
-              <button type="button"
-                class="bookingSizeBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
-                data-size="20">
-                <div class="font-black uppercase italic text-xl">20 Yard</div>
-                <div class="mono text-[10px] text-zinc-500">$499</div>
-              </button>
             </div>
           </div>
-
-          <a id="bookNowBtn" href="#" target="_blank"
-            class="block w-full bg-[var(--orange)] text-black py-5 text-center font-black uppercase italic text-xl hover:bg-white transition"
-            data-i18n="booking.bookNow">
-            Book Now via Square
-          </a>
-          <p class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-600 text-center"
-            data-i18n="booking.secureNote">Secure payment • Instant
-            confirmation</p>
+          <p class="mt-3 mono text-[10px] uppercase tracking-[0.22em] text-zinc-600" data-i18n="booking.timeNote">
+            Evening/night slots available •
+            We deliver 24/7</p>
         </div>
+
+        <div class="border border-zinc-800 bg-black/20 p-6">
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500 mb-3" data-i18n="booking.sizePrompt">
+            Choose Dumpster Size</div>
+          <div class="grid grid-cols-2 gap-3">
+            <button type="button"
+              class="bookingSizeBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
+              data-size="14">
+              <div class="font-black uppercase italic text-xl">14 Yard</div>
+              <div class="mono text-[10px] text-zinc-500">$399</div>
+            </button>
+            <button type="button"
+              class="bookingSizeBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
+              data-size="20">
+              <div class="font-black uppercase italic text-xl">20 Yard</div>
+              <div class="mono text-[10px] text-zinc-500">$499</div>
+            </button>
+          </div>
+        </div>
+
+        <a id="bookNowBtn" href="#" target="_blank"
+          class="block w-full bg-[var(--orange)] text-black py-5 text-center font-black uppercase italic text-xl hover:bg-white transition"
+          data-i18n="booking.bookNow">
+          Book Now via Square
+        </a>
+        <p class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-600 text-center"
+          data-i18n="booking.secureNote">Secure payment • Instant
+          confirmation</p>
+      </div>
       </div>
     </section>
 
