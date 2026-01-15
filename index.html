@@ -186,13 +186,14 @@
           <div class="absolute bottom-5 left-5 right-5 border border-white/10 bg-black/50 backdrop-blur-sm p-4">
             <div class="flex items-start justify-between gap-4">
               <div>
-                <div class="mono text-[10px] text-[var(--orange)] uppercase tracking-[0.22em]">Featured Size</div>
-                <div class="font-black uppercase italic text-xl">14 Yard</div>
-                <div class="text-zinc-400 text-sm">Cleanouts • Small remodels • Most driveways</div>
+                <div class="mono text-[10px] text-[var(--orange)] uppercase tracking-[0.22em]" data-i18n="hero.cardTag">
+                  Popular</div>
+                <div class="font-black uppercase italic text-xl" data-i18n="hero.cardTitle">14 Yard Container</div>
+                <div class="text-zinc-400 text-sm" data-i18n="hero.cardUse">Cleanouts • Small Remodels</div>
               </div>
               <button
                 class="border border-zinc-700 hover:border-[var(--orange)] px-4 py-2 mono text-[10px] uppercase tracking-[0.22em]"
-                id="select20" data-size="14">Select</button>
+                id="select20" data-size="14" data-i18n="hero.select">Select This Size</button>
             </div>
           </div>
         </div>
@@ -258,8 +259,13 @@
           class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
         <div class="absolute bottom-6 left-6 right-6">
-          <div class="mono text-[10px] text-[var(--orange)] uppercase tracking-[0.35em]">Family Owned & Operated</div>
-          <div class="mt-2 text-xl sm:text-2xl font-black uppercase italic">Your Local Dumpster Team</div>
+          <div class="mono text-[10px] text-[var(--orange)] uppercase tracking-[0.35em]" data-i18n="about.photoKicker">
+            Family Owned</div>
+          <div class="mt-2 text-xl sm:text-2xl font-black uppercase italic" data-i18n="about.photoTitle">The Big Bros
+            Team</div>
+          <p class="mt-2 text-zinc-400 text-sm leading-relaxed" data-i18n="about.photoBody">We are a local, family-run
+            team dedicated to the Central Valley. When you call us, you talk to the owners directly—not a broker or call
+            center.</p>
         </div>
       </div>
     </section>
