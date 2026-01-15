@@ -5,7 +5,8 @@ const BUSINESS = {
     phoneDisplay: "559-495-8034",
     phoneTel: "+15594958034",
     smsNumber: "+15594958034",
-    email: "will@bigbrosdumpster.com"
+    email: "will@bigbrosdumpster.com",
+    googleReviewUrl: "https://g.page/r/YOUR_REVIEW_LINK_HERE/review"
 };
 
 // -----------------------------
@@ -28,6 +29,8 @@ function setBusinessLinks() {
         if (el) { el.href = sms; }
     });
     // Update visible phone text instances
+    const reviewBtn = document.getElementById("googleReviewBtn");
+    if (reviewBtn) { reviewBtn.href = BUSINESS.googleReviewUrl; }
 }
 
 // -----------------------------
@@ -245,20 +248,54 @@ $$("[data-size-pick]").forEach(btn => {
 });
 
 $("#select20")?.addEventListener('click', () => {
-    const val = "20";
+    const val = $("#select20").dataset.size || "14";
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     showStep(2);
     $("#size").value = val;
     showStep(3);
 });
 
-// Keep summary updated
+// Lead persistence (save to localStorage)
+function saveProgress() {
+    const data = {
+        zip: $("#zip")?.value || "",
+        size: $("#size")?.value || "",
+        debris: $("#debris")?.value || "",
+        date: $("#date")?.value || "",
+        placement: $("#placement")?.value || "",
+        name: $("#name")?.value || "",
+        phone: $("#phone")?.value || "",
+        notes: $("#notes")?.value || ""
+    };
+    localStorage.setItem('bigBrosLead', JSON.stringify(data));
+}
+
+function loadProgress() {
+    try {
+        const saved = localStorage.getItem('bigBrosLead');
+        if (!saved) return;
+        const data = JSON.parse(saved);
+        if (data.zip) $("#zip").value = data.zip;
+        if (data.size) $("#size").value = data.size;
+        if (data.debris) setDebris(data.debris);
+        if (data.date) $("#date").value = data.date;
+        if (data.placement) $("#placement").value = data.placement;
+        if (data.name) $("#name").value = data.name;
+        if (data.phone) $("#phone").value = data.phone;
+        if (data.notes) $("#notes").value = data.notes;
+        validateZip();
+    } catch (e) { console.warn("Persistence failed", e); }
+}
+
+// Keep summary updated and save progress
 ["zip", "size", "debris", "date", "placement", "name", "phone", "notes"].forEach(id => {
-    document.getElementById(id)?.addEventListener('input', () => {
-        if (step === 4) buildSummary();
-    });
-    document.getElementById(id)?.addEventListener('change', () => {
-        if (step === 4) buildSummary();
+    const el = document.getElementById(id);
+    if (!el) return;
+    ['input', 'change'].forEach(evt => {
+        el.addEventListener(evt, () => {
+            if (step === 4) buildSummary();
+            saveProgress();
+        });
     });
 });
 
@@ -308,9 +345,10 @@ document.getElementById('langBtn')?.addEventListener('click', () => {
 // Init
 // -----------------------------
 document.getElementById('year').textContent = new Date().getFullYear();
-applyLang(); // Relies on 'applyLang' from i18n.js
+applyLang();
 showStep(1);
 setBusinessLinks();
+loadProgress();
 
 // -----------------------------
 // Booking Calendar Widget
@@ -359,12 +397,12 @@ function renderCalendar() {
         btn.type = 'button';
         btn.textContent = day;
         btn.className = `p-3 text-center font-bold transition ${isPast
-                ? 'text-zinc-700 cursor-not-allowed'
-                : isSelected
-                    ? 'bg-[var(--orange)] text-black border border-[var(--orange)]'
-                    : isToday
-                        ? 'border border-[var(--orange)] hover:bg-[var(--orange)] hover:text-black'
-                        : 'border border-zinc-800 hover:border-[var(--orange)] bg-black'
+            ? 'text-zinc-700 cursor-not-allowed'
+            : isSelected
+                ? 'bg-[var(--orange)] text-black border border-[var(--orange)]'
+                : isToday
+                    ? 'border border-[var(--orange)] hover:bg-[var(--orange)] hover:text-black'
+                    : 'border border-zinc-800 hover:border-[var(--orange)] bg-black'
             }`;
 
         if (!isPast) {

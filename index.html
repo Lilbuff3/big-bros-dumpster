@@ -369,13 +369,15 @@
     <section id="booking" class="space-y-8">
       <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter">Book Your Dumpster</h2>
+          <h2 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter" data-i18n="booking.title">Book
+            Your Dumpster</h2>
           <p class="mono text-[11px] text-zinc-500 uppercase tracking-[0.22em]">24/7 delivery • Select your date & time
           </p>
         </div>
         <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500">
           <span class="inline-flex items-center gap-2"><span
-              class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span>Online booking
+              class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span data-i18n="booking.status">Online
+              booking
               available</span></span>
         </div>
       </div>
@@ -408,12 +410,15 @@
         <!-- Time Slots & Booking Summary -->
         <div class="lg:col-span-5 space-y-4">
           <div class="border border-zinc-800 bg-black/20 p-6">
-            <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--orange)]">Selected Date</div>
-            <div id="selectedDate" class="mt-2 text-2xl font-black uppercase italic">Select a date</div>
+            <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--orange)]"
+              data-i18n="booking.selectedDate">Selected Date</div>
+            <div id="selectedDate" class="mt-2 text-2xl font-black uppercase italic"
+              data-i18n="booking.selectDatePrompt">Select a date</div>
           </div>
 
           <div class="border border-zinc-800 bg-black/20 p-6">
-            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500 mb-4">Choose Delivery Time (1 hour
+            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500 mb-4" data-i18n="booking.timePrompt">
+              Choose Delivery Time (1 hour
               window)</div>
             <div id="timeSlots" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
               <button type="button"
@@ -462,12 +467,14 @@
                 class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
                 data-time="20:00">8:00 PM</button>
             </div>
-            <p class="mt-3 mono text-[10px] uppercase tracking-[0.22em] text-zinc-600">Evening/night slots available •
+            <p class="mt-3 mono text-[10px] uppercase tracking-[0.22em] text-zinc-600" data-i18n="booking.timeNote">
+              Evening/night slots available •
               We deliver 24/7</p>
           </div>
 
           <div class="border border-zinc-800 bg-black/20 p-6">
-            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500 mb-3">Choose Dumpster Size</div>
+            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500 mb-3" data-i18n="booking.sizePrompt">
+              Choose Dumpster Size</div>
             <div class="grid grid-cols-2 gap-3">
               <button type="button"
                 class="bookingSizeBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
@@ -485,10 +492,12 @@
           </div>
 
           <a id="bookNowBtn" href="#" target="_blank"
-            class="block w-full bg-[var(--orange)] text-black py-5 text-center font-black uppercase italic text-xl hover:bg-white transition">
+            class="block w-full bg-[var(--orange)] text-black py-5 text-center font-black uppercase italic text-xl hover:bg-white transition"
+            data-i18n="booking.bookNow">
             Book Now via Square
           </a>
-          <p class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-600 text-center">Secure payment • Instant
+          <p class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-600 text-center"
+            data-i18n="booking.secureNote">Secure payment • Instant
             confirmation</p>
         </div>
       </div>
@@ -877,12 +886,30 @@
         </div>
       </div>
 
-      <div class="space-y-3">
+      <div class="space-y-4">
         <div class="mono text-[10px] text-[var(--orange)] uppercase tracking-[0.22em]" data-i18n="footer.contact">
           Contact</div>
         <div class="text-2xl font-black uppercase italic">559‑495‑8034</div>
-        <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600" data-i18n="footer.hours">Hours:
-          call/text for dispatch windows</div>
+        <a id="googleReviewBtn" href="#" target="_blank"
+          class="inline-flex items-center gap-2 border border-zinc-800 px-4 py-2 hover:border-[var(--orange)] transition mono text-[10px] uppercase tracking-[0.22em]">
+          <svg class="w-4 h-4 text-[#4285F4]" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+              fill="#4285F4" />
+            <path
+              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+              fill="#34A853" />
+            <path
+              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+              fill="#FBBC05" />
+            <path
+              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 12-4.53z"
+              fill="#EA4335" />
+          </svg>
+          <span data-i18n="footer.review">Review us on Google</span>
+        </a>
+        <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600 pt-2" data-i18n="footer.hours">Hours:
+          call/text for delivery times</div>
         <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600">© <span id="year"></span> Big Bros
           Dumpster Rentals</div>
       </div>
