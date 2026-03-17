@@ -354,10 +354,10 @@ function setupSmsFeature() {
     const smsBody = encodeURIComponent("Hi Big Bros, I need a dumpster quote. ZIP: ");
     const smsHref = `sms:${BUSINESS.smsNumber}?&body=${smsBody}`;
     
-    // Set QR code (using Google Charts API)
+    // Set QR code (using api.qrserver.com)
     if (qrImage) {
         const qrContent = encodeURIComponent(`SMSTO:${BUSINESS.smsNumber}:Hi Big Bros, I need a dumpster quote. ZIP: `);
-        qrImage.src = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${qrContent}&choe=UTF-8`;
+        qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrContent}`;
     }
 
     smsLinks.forEach(link => {
