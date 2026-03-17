@@ -12,8 +12,8 @@ const BUSINESS = {
 // -----------------------------
 // Helpers
 // -----------------------------
-const $ = (sel, root = document) => root.querySelector(sel);
-const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+const _qS = (sel, root = document) => root.querySelector(sel);
+const _qSA = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
 function setBusinessLinks() {
     const phoneText = BUSINESS.phoneDisplay;
@@ -36,15 +36,15 @@ function setBusinessLinks() {
 // -----------------------------
 // Mobile menu
 // -----------------------------
-const menuBtn = $("#menuBtn");
-const mobileMenu = $("#mobileMenu");
+const menuBtn = _qS("#menuBtn");
+const mobileMenu = _qS("#mobileMenu");
 if (menuBtn && mobileMenu) {
     menuBtn.addEventListener("click", () => {
         const open = mobileMenu.classList.toggle("hidden") === false;
         menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
     });
     // Close on link tap
-    $$("a,button", mobileMenu).forEach(el => {
+    _qSA("a,button", mobileMenu).forEach(el => {
         el.addEventListener("click", () => mobileMenu.classList.add("hidden"));
     });
 }
@@ -52,23 +52,23 @@ if (menuBtn && mobileMenu) {
 // -----------------------------
 // Quote modal
 // -----------------------------
-const quoteModal = $("#quoteModal");
+const quoteModal = _qS("#quoteModal");
 function openModal() { quoteModal?.classList.remove("hidden"); }
 function closeModal() { quoteModal?.classList.add("hidden"); }
 
-$("#openQuote")?.addEventListener("click", openModal);
-$("#openQuoteMobile")?.addEventListener("click", openModal);
-$("#quoteSticky")?.addEventListener("click", openModal);
-$$('[data-close]', quoteModal || document).forEach(el => el.addEventListener('click', closeModal));
+_qS("#openQuote")?.addEventListener("click", openModal);
+_qS("#openQuoteMobile")?.addEventListener("click", openModal);
+_qS("#quoteSticky")?.addEventListener("click", openModal);
+_qSA('[data-close]', quoteModal || document).forEach(el => el.addEventListener('click', closeModal));
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-$("#modalGo")?.addEventListener("click", () => {
+_qS("#modalGo")?.addEventListener("click", () => {
     closeModal();
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     setTimeout(() => document.getElementById('zip')?.focus(), 450);
 });
 
 // Scroll quote
-$("#scrollQuote")?.addEventListener("click", () => {
+_qS("#scrollQuote")?.addEventListener("click", () => {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     setTimeout(() => document.getElementById('zip')?.focus(), 450);
 });
@@ -76,14 +76,14 @@ $("#scrollQuote")?.addEventListener("click", () => {
 // -----------------------------
 // Quote wizard
 // -----------------------------
-const stepLabel = $("#stepLabel");
-const stepNum = $("#stepNum");
-const progress = $("#progress");
-const nextBtn = $("#nextBtn");
-const toStep4 = $("#toStep4");
-const form = $("#quoteForm");
+const stepLabel = _qS("#stepLabel");
+const stepNum = _qS("#stepNum");
+const progress = _qS("#progress");
+const nextBtn = _qS("#nextBtn");
+const toStep4 = _qS("#toStep4");
+const form = _qS("#quoteForm");
 
-const steps = $$(".step");
+const steps = _qSA(".step");
 let step = 1;
 
 const stepNames = { 1: "Location", 2: "Size", 3: "Details", 4: "Send" };
@@ -108,8 +108,8 @@ function showStep(n) {
 }
 
 function validateZip() {
-    const zip = String($("#zip")?.value || "").trim();
-    const status = $("#zipStatus");
+    const zip = String(_qS("#zip")?.value || "").trim();
+    const status = _qS("#zipStatus");
     if (!status) return true;
 
     if (zip.length === 0) {
@@ -118,7 +118,7 @@ function validateZip() {
         return false;
     }
 
-    if (!/^\d{5}$/.test(zip)) {
+    if (!/^\d{5}_qS/.test(zip)) {
         status.classList.remove('hidden');
         status.className = "mt-3 border border-zinc-800 bg-black/30 p-3 text-sm text-zinc-300";
         status.textContent = lang === 'es' ? "Ingresa un ZIP de 5 dígitos." : "Enter a 5-digit ZIP.";
@@ -152,14 +152,14 @@ function requireField(id) {
 }
 
 function buildSummary() {
-    const zip = $("#zip")?.value?.trim() || "";
-    const size = $("#size")?.value || "";
-    const debris = $("#debris")?.value || "";
-    const date = $("#date")?.value || "";
-    const placement = $("#placement")?.value || "";
-    const name = $("#name")?.value?.trim() || "";
-    const phone = $("#phone")?.value?.trim() || "";
-    const notes = $("#notes")?.value?.trim() || "";
+    const zip = _qS("#zip")?.value?.trim() || "";
+    const size = _qS("#size")?.value || "";
+    const debris = _qS("#debris")?.value || "";
+    const date = _qS("#date")?.value || "";
+    const placement = _qS("#placement")?.value || "";
+    const name = _qS("#name")?.value?.trim() || "";
+    const phone = _qS("#phone")?.value?.trim() || "";
+    const notes = _qS("#notes")?.value?.trim() || "";
 
     const lines = [
         `ZIP: ${zip}`,
@@ -173,21 +173,21 @@ function buildSummary() {
     ].filter(Boolean);
 
     const summaryText = lines.join("\n");
-    const summaryEl = $("#summary");
+    const summaryEl = _qS("#summary");
     if (summaryEl) summaryEl.textContent = summaryText;
     return summaryText;
 }
 
 function setSizeAndAdvance(val) {
-    $("#size").value = val;
+    _qS("#size").value = val;
     showStep(3);
 }
 
 function setDebris(val) {
-    $("#debris").value = val;
+    _qS("#debris").value = val;
     // Stay on step 3; user can set date/placement then next
-    $$(".debrisBtn").forEach(b => b.classList.remove("border-[var(--orange)]", "text-[var(--orange)]"));
-    const btn = $(`.debrisBtn[data-value="${CSS.escape(val)}"]`);
+    _qSA(".debrisBtn").forEach(b => b.classList.remove("border-[var(--orange)]", "text-[var(--orange)]"));
+    const btn = _qS(`.debrisBtn[data-value="${CSS.escape(val)}"]`);
     btn?.classList.add("border-[var(--orange)]", "text-[var(--orange)]");
 }
 
@@ -208,64 +208,64 @@ toStep4?.addEventListener('click', () => {
     buildSummary();
 });
 
-$$("[data-prev]").forEach(btn => btn.addEventListener('click', () => {
+_qSA("[data-prev]").forEach(btn => btn.addEventListener('click', () => {
     showStep(Math.max(1, step - 1));
 }));
 
 // ZIP live check
-$("#zip")?.addEventListener('input', validateZip);
+_qS("#zip")?.addEventListener('input', validateZip);
 
 // Size buttons
-$$(".sizeBtn").forEach(btn => {
+_qSA(".sizeBtn").forEach(btn => {
     btn.addEventListener('click', () => {
         const val = btn.getAttribute('data-value');
-        $("#size").value = val;
-        $$(".sizeBtn").forEach(b => b.classList.remove("border-[var(--orange)]"));
+        _qS("#size").value = val;
+        _qSA(".sizeBtn").forEach(b => b.classList.remove("border-[var(--orange)]"));
         btn.classList.add("border-[var(--orange)]");
         showStep(3);
     });
 });
 
 // Debris buttons
-$$(".debrisBtn").forEach(btn => {
+_qSA(".debrisBtn").forEach(btn => {
     btn.addEventListener('click', () => {
         setDebris(btn.getAttribute('data-value'));
     });
 });
 
 // Cards select -> prefill and jump to quote
-$$("[data-size-pick]").forEach(btn => {
+_qSA("[data-size-pick]").forEach(btn => {
     btn.addEventListener('click', () => {
         const val = btn.getAttribute('data-size-pick');
         document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         showStep(1);
         setTimeout(() => {
             showStep(2);
-            $("#size").value = val;
+            _qS("#size").value = val;
             showStep(3);
         }, 450);
     });
 });
 
-$("#select20")?.addEventListener('click', () => {
-    const val = $("#select20").dataset.size || "14";
+_qS("#select20")?.addEventListener('click', () => {
+    const val = _qS("#select20").dataset.size || "14";
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     showStep(2);
-    $("#size").value = val;
+    _qS("#size").value = val;
     showStep(3);
 });
 
 // Lead persistence (save to localStorage)
 function saveProgress() {
     const data = {
-        zip: $("#zip")?.value || "",
-        size: $("#size")?.value || "",
-        debris: $("#debris")?.value || "",
-        date: $("#date")?.value || "",
-        placement: $("#placement")?.value || "",
-        name: $("#name")?.value || "",
-        phone: $("#phone")?.value || "",
-        notes: $("#notes")?.value || ""
+        zip: _qS("#zip")?.value || "",
+        size: _qS("#size")?.value || "",
+        debris: _qS("#debris")?.value || "",
+        date: _qS("#date")?.value || "",
+        placement: _qS("#placement")?.value || "",
+        name: _qS("#name")?.value || "",
+        phone: _qS("#phone")?.value || "",
+        notes: _qS("#notes")?.value || ""
     };
     localStorage.setItem('bigBrosLead', JSON.stringify(data));
 }
@@ -275,14 +275,14 @@ function loadProgress() {
         const saved = localStorage.getItem('bigBrosLead');
         if (!saved) return;
         const data = JSON.parse(saved);
-        if (data.zip) $("#zip").value = data.zip;
-        if (data.size) $("#size").value = data.size;
+        if (data.zip) _qS("#zip").value = data.zip;
+        if (data.size) _qS("#size").value = data.size;
         if (data.debris) setDebris(data.debris);
-        if (data.date) $("#date").value = data.date;
-        if (data.placement) $("#placement").value = data.placement;
-        if (data.name) $("#name").value = data.name;
-        if (data.phone) $("#phone").value = data.phone;
-        if (data.notes) $("#notes").value = data.notes;
+        if (data.date) _qS("#date").value = data.date;
+        if (data.placement) _qS("#placement").value = data.placement;
+        if (data.name) _qS("#name").value = data.name;
+        if (data.phone) _qS("#phone").value = data.phone;
+        if (data.notes) _qS("#notes").value = data.notes;
         validateZip();
     } catch (e) { console.warn("Persistence failed", e); }
 }
@@ -300,11 +300,11 @@ function loadProgress() {
 });
 
 // Copy summary
-$("#copyBtn")?.addEventListener('click', async () => {
+_qS("#copyBtn")?.addEventListener('click', async () => {
     const text = buildSummary();
     try {
         await navigator.clipboard.writeText(text);
-        const btn = $("#copyBtn");
+        const btn = _qS("#copyBtn");
         const old = btn.textContent;
         btn.textContent = lang === 'es' ? "Copiado" : "Copied";
         setTimeout(() => btn.textContent = old, 900);
@@ -342,13 +342,42 @@ document.getElementById('langBtn')?.addEventListener('click', () => {
 });
 
 // -----------------------------
-// Init
+// SMS Feature Logic
 // -----------------------------
-document.getElementById('year').textContent = new Date().getFullYear();
-applyLang();
-showStep(1);
-setBusinessLinks();
-loadProgress();
+function setupSmsFeature() {
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const smsLinks = _qSA("#textCtaHero, #fabSms, #textSticky, #textCta, #textCta2, #textSide");
+    const smsModal = _qS("#smsModal");
+    const closeBtn = _qS("#closeSmsModal");
+    const qrImage = _qS("#smsQrCode");
+    
+    const smsBody = encodeURIComponent("Hi Big Bros, I need a dumpster quote. ZIP: ");
+    const smsHref = `sms:${BUSINESS.smsNumber}?&body=${smsBody}`;
+    
+    // Set QR code (using Google Charts API)
+    if (qrImage) {
+        const qrContent = encodeURIComponent(`SMSTO:${BUSINESS.smsNumber}:Hi Big Bros, I need a dumpster quote. ZIP: `);
+        qrImage.src = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${qrContent}&choe=UTF-8`;
+    }
+
+    smsLinks.forEach(link => {
+        if (!link) return;
+        
+        if (isMobile) {
+            link.href = smsHref;
+        } else {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                smsModal?.classList.remove('hidden');
+            });
+        }
+    });
+
+    closeBtn?.addEventListener('click', () => smsModal?.classList.add('hidden'));
+    smsModal?.addEventListener('click', (e) => {
+        if (e.target === smsModal) smsModal.classList.add('hidden');
+    });
+}
 
 // -----------------------------
 // Booking Calendar Widget
@@ -495,6 +524,14 @@ document.getElementById('nextMonth')?.addEventListener('click', () => {
     renderCalendar();
 });
 
-// Initialize calendar
+// -----------------------------
+// Final Init
+// -----------------------------
+document.getElementById('year').textContent = new Date().getFullYear();
+applyLang();
+showStep(1);
+setBusinessLinks();
+loadProgress();
 renderCalendar();
 updateBookNowBtn();
+setupSmsFeature();
