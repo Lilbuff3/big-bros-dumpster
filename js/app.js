@@ -118,7 +118,7 @@ function validateZip() {
         return false;
     }
 
-    if (!/^\d{5}_qS/.test(zip)) {
+    if (!/^\d{5}$/.test(zip)) {
         status.classList.remove('hidden');
         status.className = "mt-3 border border-zinc-800 bg-black/30 p-3 text-sm text-zinc-300";
         status.textContent = lang === 'es' ? "Ingresa un ZIP de 5 dígitos." : "Enter a 5-digit ZIP.";
