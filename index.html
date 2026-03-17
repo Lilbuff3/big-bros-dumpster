@@ -632,6 +632,234 @@
           data-i18n="booking.secureNote">No payment needed • Instant
           reply</p>
       </div>
+    </section>
+
+    <!-- PRICING / QUICK QUOTE -->
+    <section id="pricing" class="space-y-8">
+      <div class="bg-zinc-900/40 border border-zinc-800 p-6 sm:p-10 relative overflow-hidden">
+        <div class="absolute inset-0 grid-overlay opacity-[0.05]"></div>
+        <div
+          class="absolute top-0 right-0 p-6 opacity-[0.06] font-black text-7xl sm:text-9xl italic uppercase select-none">
+          QUOTE</div>
+
+        <div class="relative">
+          <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 class="text-4xl sm:text-5xl font-black uppercase italic" data-i18n="quote.title">Get a Fast Quote</h2>
+              <p class="text-zinc-400" data-i18n="quote.sub">Answer 4 quick questions. We’ll reply by text/call with the
+                exact price and availability.</p>
+            </div>
+            <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="quote.hint">Pro tip:
+              include debris type to avoid surprise disposal fees.</div>
+          </div>
+
+          <div class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-7">
+              <div class="flex items-center justify-between mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">
+                <div><span data-i18n="quote.step">Step</span> <span id="stepNum">1</span>/4</div>
+                <div id="stepLabel" class="text-zinc-400">Location</div>
+              </div>
+              <div class="mt-3 h-1 bg-zinc-800">
+                <div id="progress" class="h-full bg-[var(--orange)]" style="width: 25%"></div>
+              </div>
+
+              <form id="quoteForm" class="mt-6 space-y-5" autocomplete="on">
+                <!-- Step 1 -->
+                <div class="step" data-step="1">
+                  <label class="block text-xl sm:text-2xl font-black uppercase italic" for="zip"
+                    data-i18n="quote.zipLabel">Delivery ZIP Code</label>
+                  <input id="zip" name="zip" inputmode="numeric" maxlength="5" placeholder="93611"
+                    class="w-full bg-black border border-zinc-800 p-4 sm:p-5 text-2xl sm:text-3xl font-black tracking-widest focus:border-[var(--orange)] outline-none placeholder:text-zinc-800 uppercase" />
+                  <p id="zipHelp" class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600"
+                    data-i18n="quote.zipHelp">We mainly service Fresno/Clovis + nearby. If you’re outside, we’ll
+                    confirm.</p>
+                  <div id="zipStatus" class="hidden mt-3 border border-zinc-800 bg-black/30 p-3 text-sm"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step hidden" data-step="2">
+                  <div class="flex items-end justify-between">
+                    <label class="block text-xl sm:text-2xl font-black uppercase italic"
+                      data-i18n="quote.sizeLabel">Choose Size</label>
+                    <button type="button"
+                      class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500 hover:text-white" data-prev
+                      data-i18n="quote.back">← Back</button>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <button type="button"
+                      class="sizeBtn p-5 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
+                      data-value="14">
+                      <div class="font-black uppercase italic text-2xl">14 Yard</div>
+                      <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="quote.size14">
+                        Cleanouts • small remodels</div>
+                    </button>
+                    <button type="button"
+                      class="sizeBtn p-5 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
+                      data-value="20">
+                      <div class="font-black uppercase italic text-2xl">20 Yard</div>
+                      <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="quote.size20">
+                        Renovations • big volume</div>
+                    </button>
+                  </div>
+                  <input type="hidden" id="size" name="size" value="" />
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step hidden" data-step="3">
+                  <div class="flex items-end justify-between">
+                    <label class="block text-xl sm:text-2xl font-black uppercase italic"
+                      data-i18n="quote.debrisLabel">Debris Type</label>
+                    <button type="button"
+                      class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500 hover:text-white" data-prev
+                      data-i18n="quote.back">← Back</button>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button type="button"
+                      class="debrisBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left font-bold uppercase italic text-sm transition"
+                      data-value="Household junk" data-i18n="debris.household">Household junk</button>
+                    <button type="button"
+                      class="debrisBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left font-bold uppercase italic text-sm transition"
+                      data-value="Construction debris" data-i18n="debris.construction">Construction debris</button>
+                    <button type="button"
+                      class="debrisBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left font-bold uppercase italic text-sm transition"
+                      data-value="Yard waste" data-i18n="debris.yard">Yard waste</button>
+                    <button type="button"
+                      class="debrisBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left font-bold uppercase italic text-sm transition"
+                      data-value="Concrete / dirt (heavy)" data-i18n="debris.heavy">Concrete / dirt (heavy)</button>
+                  </div>
+                  <input type="hidden" id="debris" name="debris" value="" />
+
+                  <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <label class="block">
+                      <span class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500"
+                        data-i18n="quote.when">When do you need it?</span>
+                      <input id="date" name="date" type="date"
+                        class="mt-2 w-full bg-black border border-zinc-800 p-4 focus:border-[var(--orange)] outline-none" />
+                    </label>
+                    <label class="block">
+                      <span class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500"
+                        data-i18n="quote.where">Drop location</span>
+                      <select id="placement" name="placement"
+                        class="mt-2 w-full bg-black border border-zinc-800 p-4 focus:border-[var(--orange)] outline-none">
+                        <option value="Driveway" data-i18n="place.driveway">Driveway</option>
+                        <option value="Street (may require permit)" data-i18n="place.street">Street (may require permit)
+                        </option>
+                        <option value="Jobsite" data-i18n="place.jobsite">Jobsite</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  <p class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600" data-i18n="quote.permitNote">If
+                    it goes on a public street, check city permit rules. We can share what typically works in
+                    Fresno/Clovis.</p>
+
+                  <div class="pt-2">
+                    <button type="button" id="toStep4"
+                      class="w-full bg-[var(--orange)] text-black py-4 font-black uppercase italic text-lg hover:bg-white transition">Next
+                      →</button>
+                  </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step hidden" data-step="4">
+                  <div class="flex items-end justify-between">
+                    <label class="block text-xl sm:text-2xl font-black uppercase italic"
+                      data-i18n="quote.contact">Contact Info</label>
+                    <button type="button"
+                      class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500 hover:text-white" data-prev
+                      data-i18n="quote.back">← Back</button>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <label class="block">
+                      <span class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500"
+                        data-i18n="quote.name">Name</span>
+                      <input id="name" name="name" placeholder=""
+                        class="mt-2 w-full bg-black border border-zinc-800 p-4 focus:border-[var(--orange)] outline-none" />
+                    </label>
+                    <label class="block">
+                      <span class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500"
+                        data-i18n="quote.phone">Phone (text OK)</span>
+                      <input id="phone" name="phone" inputmode="tel" placeholder="559..."
+                        class="mt-2 w-full bg-black border border-zinc-800 p-4 focus:border-[var(--orange)] outline-none" />
+                    </label>
+                  </div>
+                  <label class="block">
+                    <span class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500"
+                      data-i18n="quote.notes">Notes (gate code, items, etc.)</span>
+                    <textarea id="notes" name="notes" rows="3"
+                      class="mt-2 w-full bg-black border border-zinc-800 p-4 focus:border-[var(--orange)] outline-none"
+                      placeholder=""></textarea>
+                  </label>
+
+                  <div class="border border-zinc-800 bg-black/30 p-4">
+                    <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="quote.summary">
+                      Summary</div>
+                    <pre id="summary" class="mt-2 whitespace-pre-wrap text-zinc-200 text-sm"></pre>
+                    <div class="mt-3 flex flex-col sm:flex-row gap-3">
+                      <button type="submit"
+                        class="flex-1 bg-[var(--orange)] text-black py-4 font-black uppercase italic text-lg hover:bg-white transition"
+                        data-i18n="quote.send">Send Request</button>
+                      <button type="button" id="copyBtn"
+                        class="flex-1 border border-zinc-800 py-4 font-black uppercase italic text-lg hover:border-white hover:bg-white hover:text-black transition"
+                        data-i18n="quote.copy">Copy Details</button>
+                    </div>
+                    <p class="mt-3 mono text-[11px] uppercase tracking-[0.22em] text-zinc-600"
+                      data-i18n="quote.sendNote">Submitting will open your text or email app with the request
+                      pre‑filled.</p>
+                  </div>
+                </div>
+
+                <div class="pt-2">
+                  <button type="button" id="nextBtn"
+                    class="w-full bg-[var(--orange)] text-black py-4 font-black uppercase italic text-lg hover:bg-white transition"
+                    data-i18n="quote.next">Next →</button>
+                </div>
+              </form>
+            </div>
+
+            <aside class="lg:col-span-5 space-y-4">
+              <div class="border border-zinc-800 bg-black/20 p-6">
+                <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--orange)]" data-i18n="pricing.head">
+                  How pricing typically works</div>
+                <h3 class="mt-2 text-2xl font-black uppercase italic" data-i18n="pricing.title">Transparent, job‑based
+                  quotes</h3>
+                <p class="mt-3 text-zinc-400" data-i18n="pricing.body">Disposal costs can change by material (household
+                  vs. construction vs. heavy). We price fairly when we know what you’re tossing and where it’s going.
+                </p>
+                <ul class="mt-4 space-y-2 mono text-[11px] uppercase tracking-[0.18em] text-zinc-400">
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                      data-i18n="pricing.b1">Simple scheduling</span></li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                      data-i18n="pricing.b2">Clear weight guidance</span></li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[var(--orange)]"></span><span
+                      data-i18n="pricing.b3">No surprise pickups</span></li>
+                </ul>
+              </div>
+
+              <div class="border border-zinc-800 bg-black/20 p-6">
+                <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="rules.head">Common
+                  restrictions</div>
+                <div class="mt-2 text-zinc-300" data-i18n="rules.body">Most haulers can’t accept hazardous items
+                  (paint/chemicals), batteries, and some appliances without extra steps. Ask us—we’ll point you to the
+                  right disposal option.</div>
+              </div>
+
+              <div class="border border-zinc-800 bg-black/20 p-6">
+                <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="cta.side">Need it
+                  today?</div>
+                <div class="mt-2 flex flex-col gap-3">
+                  <a id="callSide" href="tel:+15594958034"
+                    class="bg-white text-black py-3 text-center font-black uppercase italic hover:bg-[var(--orange)] transition focus-ring"
+                    data-i18n="cta.call">Call the bros</a>
+                  <a id="textSide" href="sms:+15594958034"
+                    class="border border-zinc-800 py-3 text-center font-black uppercase italic hover:border-[var(--orange)] hover:text-[var(--orange)] transition focus-ring"
+                    data-i18n="cta.text">Text the bros</a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
       </div>
     </section>
 
