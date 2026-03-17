@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/fresno", "destination": "/fresno.html" },
+    { "source": "/clovis", "destination": "/clovis.html" }
+  ],
+  "redirects": [
+    { "source": "/fresno.html", "destination": "/fresno", "permanent": true },
+    { "source": "/clovis.html", "destination": "/clovis", "permanent": true }
+  ]
+}
