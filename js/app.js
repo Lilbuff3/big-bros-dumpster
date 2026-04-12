@@ -179,7 +179,8 @@ function buildSummary() {
 }
 
 function setSizeAndAdvance(val) {
-    _qS("#size").value = val;
+    const sizeEl = _qS("#size");
+    if (sizeEl) sizeEl.value = val;
     showStep(3);
 }
 
@@ -248,10 +249,11 @@ _qSA("[data-size-pick]").forEach(btn => {
 });
 
 _qS("#select20")?.addEventListener('click', () => {
-    const val = _qS("#select20").dataset.size || "14";
+    const val = _qS("#select20")?.dataset.size || "14";
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     showStep(2);
-    _qS("#size").value = val;
+    const sizeEl = _qS("#size");
+    if (sizeEl) sizeEl.value = val;
     showStep(3);
 });
 
@@ -265,7 +267,8 @@ function saveProgress() {
         placement: _qS("#placement")?.value || "",
         name: _qS("#name")?.value || "",
         phone: _qS("#phone")?.value || "",
-        notes: _qS("#notes")?.value || ""
+        notes: _qS("#notes")?.value || "",
+        savedAt: Date.now()
     };
     localStorage.setItem('bigBrosLead', JSON.stringify(data));
 }
@@ -275,14 +278,20 @@ function loadProgress() {
         const saved = localStorage.getItem('bigBrosLead');
         if (!saved) return;
         const data = JSON.parse(saved);
-        if (data.zip) _qS("#zip").value = data.zip;
-        if (data.size) _qS("#size").value = data.size;
+        const EXPIRY_MS = 7 * 24 * 60 * 60 * 1000;
+        if (Date.now() - (data.savedAt || 0) > EXPIRY_MS) {
+            localStorage.removeItem('bigBrosLead');
+            return;
+        }
+        const set = (sel, val) => { const el = _qS(sel); if (el && val) el.value = val; };
+        set("#zip", data.zip);
+        set("#size", data.size);
         if (data.debris) setDebris(data.debris);
-        if (data.date) _qS("#date").value = data.date;
-        if (data.placement) _qS("#placement").value = data.placement;
-        if (data.name) _qS("#name").value = data.name;
-        if (data.phone) _qS("#phone").value = data.phone;
-        if (data.notes) _qS("#notes").value = data.notes;
+        set("#date", data.date);
+        set("#placement", data.placement);
+        set("#name", data.name);
+        set("#phone", data.phone);
+        set("#notes", data.notes);
         validateZip();
     } catch (e) { console.warn("Persistence failed", e); }
 }
@@ -358,6 +367,7 @@ function setupSmsFeature() {
     if (qrImage) {
         const qrContent = encodeURIComponent(`SMSTO:${BUSINESS.smsNumber}:Hi Big Bros, I need a dumpster quote. ZIP: `);
         qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrContent}`;
+        qrImage.classList.remove('hidden');
     }
 
     smsLinks.forEach(link => {
@@ -453,28 +463,28 @@ function selectDate(date) {
     updateBookNowBtn();
 }
 
-// Time slot selection
-document.querySelectorAll('.timeSlot').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.timeSlot').forEach(b => {
-            b.classList.remove('border-[var(--orange)]', 'text-[var(--orange)]');
-        });
-        btn.classList.add('border-[var(--orange)]', 'text-[var(--orange)]');
-        selectedBookingTime = btn.getAttribute('data-time');
-        updateBookNowBtn();
+// Time slot selection (event delegation)
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.timeSlot');
+    if (!btn) return;
+    document.querySelectorAll('.timeSlot').forEach(b => {
+        b.classList.remove('border-[var(--orange)]', 'text-[var(--orange)]');
     });
+    btn.classList.add('border-[var(--orange)]', 'text-[var(--orange)]');
+    selectedBookingTime = btn.getAttribute('data-time');
+    updateBookNowBtn();
 });
 
-// Size selection for booking
-document.querySelectorAll('.bookingSizeBtn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.bookingSizeBtn').forEach(b => {
-            b.classList.remove('border-[var(--orange)]');
-        });
-        btn.classList.add('border-[var(--orange)]');
-        selectedBookingSize = btn.getAttribute('data-size');
-        updateBookNowBtn();
+// Size selection for booking (event delegation)
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.bookingSizeBtn');
+    if (!btn) return;
+    document.querySelectorAll('.bookingSizeBtn').forEach(b => {
+        b.classList.remove('border-[var(--orange)]');
     });
+    btn.classList.add('border-[var(--orange)]');
+    selectedBookingSize = btn.getAttribute('data-size');
+    updateBookNowBtn();
 });
 
 function updateBookNowBtn() {
@@ -527,7 +537,8 @@ document.getElementById('nextMonth')?.addEventListener('click', () => {
 // -----------------------------
 // Final Init
 // -----------------------------
-document.getElementById('year').textContent = new Date().getFullYear();
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 applyLang();
 showStep(1);
 setBusinessLinks();

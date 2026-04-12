@@ -154,7 +154,10 @@ const i18n = {
     "modal.body": "We’ll scroll you to the quote section. If you prefer, call/Text the Bros for fastest response.",
     "modal.go": "Go to Form",
     "modal.call": "Call",
-    "modal.text": "Text"
+    "modal.text": "Text",
+    "hero.textQuote": "Text for Quote",
+    "booking.mobileQuote": "Get a Quick Quote",
+    "booking.debrisPrompt": "Choose Debris Type"
   },
   es: {
     "top.sameDay": "Entrega el mismo día (si estás listo): Fresno / Clovis",
@@ -311,7 +314,10 @@ const i18n = {
     "modal.body": "Te llevamos al formulario. Si prefieres, llama o manda texto para respuesta más rápida.",
     "modal.go": "Ir",
     "modal.call": "Llamar a los bros",
-    "modal.text": "Texto a los bros"
+    "modal.text": "Texto a los bros",
+    "hero.textQuote": "Texto para cotización",
+    "booking.mobileQuote": "Cotización rápida",
+    "booking.debrisPrompt": "Elige tipo de material"
   }
 };
 
