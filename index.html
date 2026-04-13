@@ -176,7 +176,6 @@
         <div
           class="hidden lg:flex items-center gap-10 mono text-[11px] font-extrabold tracking-[0.22em] uppercase text-zinc-400">
           <a class="hover:text-[var(--orange)]" href="#sizes" data-i18n="nav.sizes">Dumpster Sizes</a>
-          <a class="hover:text-[var(--orange)]" href="#booking" data-i18n="nav.booking">Book Now</a>
           <a class="hover:text-[var(--orange)]" href="#pricing" data-i18n="nav.pricing">Get Pricing</a>
           <div class="relative group">
             <button class="hover:text-[var(--orange)] flex items-center gap-1">
@@ -241,18 +240,37 @@
           protection, and clean equipment.
         </p>
 
+        <!-- Google Reviews Badge -->
+        <a href="https://g.page/r/CXZ1QsLG5e_dEAE/review" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 group">
+          <div class="flex gap-0.5">
+            <svg class="w-5 h-5 text-[var(--orange)]" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-[var(--orange)]" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-[var(--orange)]" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-[var(--orange)]" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-[var(--orange)]" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <span class="font-black text-lg">4.9</span>
+          <span class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-400 group-hover:text-white transition">on Google</span>
+        </a>
+
         <!-- Hero CTA -->
-        <div class="flex flex-col sm:flex-row gap-4 pt-2">
+        <div class="grid grid-cols-2 sm:flex sm:flex-row gap-3 sm:gap-4 pt-2">
           <a id="textCtaHero" href="sms:+15594958034?&body=Hi%20Big%20Bros%2C%20I%20need%20a%20dumpster%20quote.%20ZIP%3A%20"
-            class="bg-white text-black px-7 py-4 font-black uppercase italic text-lg hover:bg-[var(--orange)] transition focus-ring text-center animate-pulse-orange"
+            class="bg-white text-black px-5 sm:px-7 py-3 sm:py-4 font-black uppercase italic text-base sm:text-lg hover:bg-[var(--orange)] transition focus-ring text-center animate-pulse-orange"
             data-i18n="hero.textQuote">Text for Quote</a>
           <a href="tel:+15594958034"
-            class="border border-zinc-700 text-white px-7 py-4 font-black uppercase italic text-lg hover:bg-white hover:text-black transition focus-ring text-center"
+            class="border border-zinc-700 text-white px-5 sm:px-7 py-3 sm:py-4 font-black uppercase italic text-base sm:text-lg hover:bg-white hover:text-black transition focus-ring text-center"
             data-i18n="hero.callQuote">Call for Quote</a>
         </div>
 
-        <!-- Badges: Hidden on mobile -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
+        <!-- Badges: compact on mobile, full cards on sm+ -->
+        <div class="flex flex-wrap gap-2 pt-3 sm:hidden mono text-[11px] uppercase tracking-[0.18em]">
+          <span class="border border-zinc-800 bg-zinc-950/40 px-3 py-1.5 text-zinc-300" data-i18n="badges.noBroker">No broker call centers</span>
+          <span class="border border-zinc-800 bg-zinc-950/40 px-3 py-1.5 text-zinc-300" data-i18n="badges.planks">Boards on drop</span>
+          <span class="border border-zinc-800 bg-zinc-950/40 px-3 py-1.5 text-zinc-300" data-i18n="badges.today">Same‑day when open</span>
+        </div>
+        <div class="hidden sm:grid grid-cols-3 gap-3 pt-4">
           <div class="border border-zinc-800 bg-zinc-950/40 p-4">
             <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-400" data-i18n="badges.direct">Talk
               Direct</div>
@@ -466,182 +484,7 @@
       </div>
     </section>
 
-    <!-- BOOKING CALENDAR -->
-    <section id="booking" class="space-y-8">
-      <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <h2 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter" data-i18n="booking.title">Check
-            Availability</h2>
-          <p class="hidden sm:block mono text-[11px] text-zinc-400 uppercase tracking-[0.22em]">24/7 delivery • Select
-            your date & time
-          </p>
-        </div>
-        <div class="hidden sm:block mono text-[11px] uppercase tracking-[0.22em] text-zinc-400">
-          <span class="inline-flex items-center gap-2"><span
-              class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span data-i18n="booking.status">Deals
-              available</span></span>
-        </div>
-      </div>
-
-      <!-- MOBILE ONLY: Simple Text CTA -->
-      <div class="lg:hidden space-y-4">
-        <div class="border border-zinc-800 bg-[#0F0F0F] p-6 text-center space-y-4">
-          <p class="text-zinc-400">Tell us what you need and we'll text back with availability and the best deal, or book directly online.</p>
-          <a id="mobileQuoteCta"
-            href="sms:+15594958034?&body=Hi%20Big%20Bros%2C%20I%20need%20a%20dumpster%20quote.%20ZIP%3A%20"
-            class="block w-full bg-[var(--orange)] text-black py-5 text-center font-black uppercase italic text-xl hover:bg-white transition"
-            data-i18n="booking.mobileQuote">
-            Text for a Fast Quote
-          </a>
-          <a href="tel:+15594958034"
-            class="block w-full border border-zinc-800 text-white py-5 text-center font-black uppercase italic text-xl hover:bg-zinc-800 transition">
-            Call for Availability
-          </a>
-          <p class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600">No payment needed • Instant reply</p>
-        </div>
-      </div>
-
-      <!-- DESKTOP ONLY: Full Calendar UI -->
-      <div class="hidden lg:grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <!-- Calendar Widget -->
-        <div class="lg:col-span-7 border border-zinc-800 bg-[#0F0F0F] p-6">
-          <div class="flex items-center justify-between mb-6">
-            <button id="prevMonth"
-              class="border border-zinc-700 hover:border-[var(--orange)] px-4 py-2 mono text-[11px] uppercase tracking-[0.22em]">←
-              Prev</button>
-            <div id="calendarMonth" class="text-2xl font-black uppercase italic"></div>
-            <button id="nextMonth"
-              class="border border-zinc-700 hover:border-[var(--orange)] px-4 py-2 mono text-[11px] uppercase tracking-[0.22em]">Next
-              →</button>
-          </div>
-
-          <div class="grid grid-cols-7 gap-1 mb-2">
-            <div class="text-center mono text-[11px] text-zinc-400 uppercase py-2">Sun</div>
-            <div class="text-center mono text-[11px] text-zinc-400 uppercase py-2">Mon</div>
-            <div class="text-center mono text-[11px] text-zinc-400 uppercase py-2">Tue</div>
-            <div class="text-center mono text-[11px] text-zinc-400 uppercase py-2">Wed</div>
-            <div class="text-center mono text-[11px] text-zinc-400 uppercase py-2">Thu</div>
-            <div class="text-center mono text-[11px] text-zinc-400 uppercase py-2">Fri</div>
-            <div class="text-center mono text-[11px] text-zinc-400 uppercase py-2">Sat</div>
-          </div>
-          <div id="calendarDays" class="grid grid-cols-7 gap-1"></div>
-        </div>
-
-        <!-- Time Slots & Booking Summary -->
-        <div class="lg:col-span-5 space-y-4">
-          <div class="border border-zinc-800 bg-black/20 p-6">
-            <div class="mono text-[11px] uppercase tracking-[0.22em] text-[var(--orange)]"
-              data-i18n="booking.selectedDate">Selected Date</div>
-            <div id="selectedDate" class="mt-2 text-2xl font-black uppercase italic"
-              data-i18n="booking.selectDatePrompt">Select a date</div>
-          </div>
-
-          <div class="border border-zinc-800 bg-black/20 p-6">
-            <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-400 mb-4" data-i18n="booking.timePrompt">
-              Choose Delivery Time (1 hour
-              window)</div>
-            <div id="timeSlots" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="08:00">8:00 AM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="09:00">9:00 AM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="10:00">10:00 AM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="11:00">11:00 AM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="12:00">12:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="13:00">1:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="14:00">2:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="15:00">3:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="16:00">4:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="17:00">5:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="18:00">6:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="19:00">7:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="20:00">8:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="21:00">9:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="22:00">10:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="23:00">11:00 PM</button>
-              <button type="button"
-                class="timeSlot p-3 border border-zinc-800 hover:border-[var(--orange)] bg-black text-center mono text-[11px] uppercase"
-                data-time="00:00">12:00 AM</button>
-            </div>
-          </div>
-          <p class="mt-3 mono text-[11px] uppercase tracking-[0.22em] text-zinc-600" data-i18n="booking.timeNote">
-            Evening/night slots available •
-            We deliver 24/7</p>
-        </div>
-
-        <div class="lg:col-span-6 border border-zinc-800 bg-black/20 p-6">
-          <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-400 mb-3" data-i18n="booking.sizePrompt">
-            Choose Dumpster Size</div>
-          <div class="grid grid-cols-2 gap-3">
-            <button type="button"
-              class="bookingSizeBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
-              data-size="14">
-              <div class="font-black uppercase italic text-xl">14 Yard</div>
-              <div class="mono text-[11px] text-zinc-400">$399</div>
-            </button>
-            <button type="button"
-              class="bookingSizeBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
-              data-size="20">
-              <div class="font-black uppercase italic text-xl">20 Yard</div>
-              <div class="mono text-[11px] text-zinc-400">$499</div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Debris Selection -->
-        <div class="lg:col-span-6 border border-zinc-800 bg-black/20 p-6">
-          <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-400 mb-3" data-i18n="booking.debrisPrompt">
-            Debris Type</div>
-          <select id="bookingDebris"
-            class="w-full bg-black border border-zinc-800 p-3 font-bold uppercase italic text-lg outline-none focus:border-[var(--orange)] text-zinc-300"
-            title="Select debris type">
-            <option value="Household Junk">Household Junk</option>
-            <option value="Construction Debris">Construction Debris</option>
-            <option value="Yard Waste">Yard Waste</option>
-            <option value="Furniture/Estate">Furniture / Estate Sales</option>
-          </select>
-        </div>
-
-        <a id="bookNowBtn" href="#" target="_blank" rel="noopener noreferrer"
-          class="lg:col-span-12 block w-full bg-[var(--orange)] text-black py-5 text-center font-black uppercase italic text-xl hover:bg-white transition"
-          data-i18n="booking.bookNow">
-          Check Availability
-        </a>
-        <p class="lg:col-span-12 mono text-[11px] uppercase tracking-[0.22em] text-zinc-600 text-center"
-          data-i18n="booking.secureNote">No payment needed • Instant
-          reply</p>
-      </div>
-    </section>
+    <!-- BOOKING: removed until Square integration is ready -->
 
     <!-- PRICING / QUICK QUOTE -->
     <section id="pricing" class="space-y-8">
@@ -1031,7 +874,7 @@
         <div class="mono text-[11px] text-[var(--orange)] uppercase tracking-[0.22em]" data-i18n="footer.contact">
           Contact</div>
         <div class="text-2xl font-black uppercase italic">559‑495‑8034</div>
-        <a id="googleReviewBtn" href="#" target="_blank" rel="noopener noreferrer"
+        <a id="googleReviewBtn" href="https://g.page/r/CXZ1QsLG5e_dEAE/review" target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 border border-zinc-800 px-4 py-2 hover:border-[var(--orange)] transition mono text-[11px] uppercase tracking-[0.22em]">
           <svg class="w-4 h-4 text-[#4285F4]" viewBox="0 0 24 24" fill="currentColor">
             <path
