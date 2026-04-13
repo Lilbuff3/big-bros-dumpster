@@ -205,6 +205,8 @@
       <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 py-4">
         <div class="grid gap-3 mono text-[11px] font-extrabold tracking-[0.22em] uppercase text-zinc-300">
           <a class="block py-3 hover:text-[var(--orange)]" href="#sizes" data-i18n="nav.sizes">Dumpster Sizes</a>
+          <a class="block py-3 hover:text-[var(--orange)]" href="#pricing" data-i18n="nav.pricing">Get Pricing</a>
+          <a class="block py-3 hover:text-[var(--orange)]" href="#area">Service Area</a>
           <a class="block py-3 hover:text-[var(--orange)]" href="#faq" data-i18n="nav.faq">FAQ</a>
           <!-- Language toggle moved here for mobile -->
           <button id="langBtnMobile"
@@ -244,10 +246,13 @@
           <a id="textCtaHero" href="sms:+15594958034?&body=Hi%20Big%20Bros%2C%20I%20need%20a%20dumpster%20quote.%20ZIP%3A%20"
             class="bg-white text-black px-7 py-4 font-black uppercase italic text-lg hover:bg-[var(--orange)] transition focus-ring text-center animate-pulse-orange"
             data-i18n="hero.textQuote">Text for Quote</a>
+          <a href="tel:+15594958034"
+            class="border border-zinc-700 text-white px-7 py-4 font-black uppercase italic text-lg hover:bg-white hover:text-black transition focus-ring text-center"
+            data-i18n="hero.callQuote">Call for Quote</a>
         </div>
 
         <!-- Badges: Hidden on mobile -->
-        <div class="hidden sm:grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
           <div class="border border-zinc-800 bg-zinc-950/40 p-4">
             <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-400" data-i18n="badges.direct">Talk
               Direct</div>
@@ -289,7 +294,7 @@
               </div>
               <button
                 class="border border-zinc-700 hover:border-[var(--orange)] px-4 py-2 mono text-[11px] uppercase tracking-[0.22em]"
-                id="select20" data-size="14" data-i18n="hero.select">Select This Size</button>
+                id="select14" data-size="14" data-i18n="hero.select">Select This Size</button>
             </div>
           </div>
         </div>
@@ -350,7 +355,7 @@
         </div>
       </div>
 
-      <div class="bg-zinc-900 min-h-[420px] relative overflow-hidden">
+      <div class="bg-zinc-800 min-h-[420px] relative overflow-hidden">
         <img src="images/family-photo.png" alt="Big Bros family-owned dumpster rental team in Fresno"
           class="w-full h-full object-cover" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -488,11 +493,9 @@
             data-i18n="booking.mobileQuote">
             Text for a Fast Quote
           </a>
-          <a id="mobileBookCta"
-            href="https://square.site/book/REPLACE_WITH_YOUR_SQUARE_BOOKING_ID/big-bros-dumpster"
-            target="_blank" rel="noopener noreferrer"
+          <a href="tel:+15594958034"
             class="block w-full border border-zinc-800 text-white py-5 text-center font-black uppercase italic text-xl hover:bg-zinc-800 transition">
-            Book Online
+            Call for Availability
           </a>
           <p class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600">No payment needed • Instant reply</p>
         </div>
@@ -900,12 +903,10 @@
             </p>
           </div>
 
-          <div class="border border-zinc-800 bg-black/20 p-6">
-            <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-400" data-i18n="area.slots">Need a
+          <div class=”border border-zinc-800 bg-black/20 p-6”>
+            <div class=”mono text-[11px] uppercase tracking-[0.22em] text-zinc-400” data-i18n=”area.slots”>Need a
               dumpster?</div>
-            <p class="mt-2 text-zinc-400 text-sm" data-i18n="area.seo">Add dedicated pages later for “Dumpster rental
-              Fresno”, “Dumpster rental Clovis”, and contractor services. It’s the #1 lever for ranking and inbound
-              calls.</p>
+            <p class=”mt-2 text-zinc-400 text-sm” data-i18n=”area.cta”>Not listed? Text us your ZIP and we’ll confirm if we can get to you.</p>
           </div>
         </div>
       </div>
