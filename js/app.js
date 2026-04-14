@@ -318,7 +318,11 @@ _qS("#copyBtn")?.addEventListener('click', async () => {
         btn.textContent = lang === 'es' ? "Copiado" : "Copied";
         setTimeout(() => btn.textContent = old, 900);
     } catch (e) {
-        alert(lang === 'es' ? "No se pudo copiar." : "Copy failed.");
+        const btn = _qS("#copyBtn");
+        const old = btn.textContent;
+        btn.textContent = lang === 'es' ? "Error al copiar" : "Copy failed";
+        btn.classList.add("border-red-500", "text-red-400");
+        setTimeout(() => { btn.textContent = old; btn.classList.remove("border-red-500", "text-red-400"); }, 1500);
     }
 });
 
@@ -346,6 +350,13 @@ form?.addEventListener('submit', (e) => {
 document.getElementById('langBtn')?.addEventListener('click', () => {
     lang = (lang === 'en') ? 'es' : 'en'; // Relies on 'lang' from i18n.js
     applyLang(); // Relies on 'applyLang' from i18n.js
+    validateZip();
+    if (step === 4) buildSummary();
+});
+
+document.getElementById('langBtnMobile')?.addEventListener('click', () => {
+    lang = (lang === 'en') ? 'es' : 'en';
+    applyLang();
     validateZip();
     if (step === 4) buildSummary();
 });
