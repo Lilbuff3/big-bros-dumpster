@@ -24,7 +24,7 @@ function setBusinessLinks() {
         const el = document.getElementById(id);
         if (el) { el.href = tel; }
     });
-    ["textCta", "textSide", "textSticky", "textCta2", "modalText"].forEach(id => {
+    ["textCta", "textSide", "textSticky", "modalText"].forEach(id => {
         const el = document.getElementById(id);
         if (el) { el.href = sms; }
     });
@@ -366,7 +366,7 @@ document.getElementById('langBtnMobile')?.addEventListener('click', () => {
 // -----------------------------
 function setupSmsFeature() {
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const smsLinks = _qSA("#textCtaHero, #fabSms, #textSticky, #textCta, #textCta2, #textSide");
+    const smsLinks = _qSA("#textCtaHero, #fabSms, #textSticky, #textCta, #textSide");
     const smsModal = _qS("#smsModal");
     const closeBtn = _qS("#closeSmsModal");
     const qrImage = _qS("#smsQrCode");
@@ -401,151 +401,6 @@ function setupSmsFeature() {
 }
 
 // -----------------------------
-// Booking Calendar Widget
-// -----------------------------
-const SQUARE_BOOKING_URL = "https://square.site/book/REPLACE_WITH_YOUR_SQUARE_BOOKING_ID/big-bros-dumpster";
-
-let currentMonth = new Date().getMonth();
-let currentYear = new Date().getFullYear();
-let selectedBookingDate = null;
-let selectedBookingTime = null;
-let selectedBookingSize = null;
-
-const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-function renderCalendar() {
-    const calendarMonth = document.getElementById('calendarMonth');
-    const calendarDays = document.getElementById('calendarDays');
-    if (!calendarMonth || !calendarDays) return;
-
-    calendarMonth.textContent = `${monthNames[currentMonth]} ${currentYear}`;
-    calendarDays.innerHTML = '';
-
-    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    // Empty cells before first day
-    for (let i = 0; i < firstDay; i++) {
-        const empty = document.createElement('div');
-        empty.className = 'p-3';
-        calendarDays.appendChild(empty);
-    }
-
-    // Day cells
-    for (let day = 1; day <= daysInMonth; day++) {
-        const dateObj = new Date(currentYear, currentMonth, day);
-        const isPast = dateObj < today;
-        const isToday = dateObj.getTime() === today.getTime();
-        const isSelected = selectedBookingDate &&
-            dateObj.getDate() === selectedBookingDate.getDate() &&
-            dateObj.getMonth() === selectedBookingDate.getMonth() &&
-            dateObj.getFullYear() === selectedBookingDate.getFullYear();
-
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.textContent = day;
-        btn.className = `p-3 text-center font-bold transition ${isPast
-            ? 'text-zinc-700 cursor-not-allowed'
-            : isSelected
-                ? 'bg-[var(--orange)] text-black border border-[var(--orange)]'
-                : isToday
-                    ? 'border border-[var(--orange)] hover:bg-[var(--orange)] hover:text-black'
-                    : 'border border-zinc-800 hover:border-[var(--orange)] bg-black'
-            }`;
-
-        if (!isPast) {
-            btn.addEventListener('click', () => selectDate(dateObj));
-        }
-
-        calendarDays.appendChild(btn);
-    }
-}
-
-function selectDate(date) {
-    selectedBookingDate = date;
-    const selectedDateEl = document.getElementById('selectedDate');
-    if (selectedDateEl) {
-        const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
-        selectedDateEl.textContent = date.toLocaleDateString('en-US', options);
-    }
-    renderCalendar();
-    updateBookNowBtn();
-}
-
-// Time slot selection (event delegation)
-document.addEventListener('click', (e) => {
-    const btn = e.target.closest('.timeSlot');
-    if (!btn) return;
-    document.querySelectorAll('.timeSlot').forEach(b => {
-        b.classList.remove('border-[var(--orange)]', 'text-[var(--orange)]');
-    });
-    btn.classList.add('border-[var(--orange)]', 'text-[var(--orange)]');
-    selectedBookingTime = btn.getAttribute('data-time');
-    updateBookNowBtn();
-});
-
-// Size selection for booking (event delegation)
-document.addEventListener('click', (e) => {
-    const btn = e.target.closest('.bookingSizeBtn');
-    if (!btn) return;
-    document.querySelectorAll('.bookingSizeBtn').forEach(b => {
-        b.classList.remove('border-[var(--orange)]');
-    });
-    btn.classList.add('border-[var(--orange)]');
-    selectedBookingSize = btn.getAttribute('data-size');
-    updateBookNowBtn();
-});
-
-function updateBookNowBtn() {
-    const btn = document.getElementById('bookNowBtn');
-    if (!btn) return;
-
-    if (selectedBookingDate && selectedBookingTime && selectedBookingSize) {
-        const dateStr = selectedBookingDate.toISOString().split('T')[0];
-        // Build Square booking URL with parameters (adjust based on your Square setup)
-        btn.href = `${SQUARE_BOOKING_URL}?date=${dateStr}&time=${selectedBookingTime}&size=${selectedBookingSize}`;
-        btn.classList.remove('opacity-50', 'pointer-events-none');
-        btn.textContent = `Book ${selectedBookingSize} Yard • ${selectedBookingDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} @ ${formatTime(selectedBookingTime)}`;
-    } else {
-        btn.href = '#';
-        btn.classList.add('opacity-50', 'pointer-events-none');
-        btn.textContent = 'Select date, time & size to book';
-    }
-}
-
-function formatTime(time24) {
-    const [hours, minutes] = time24.split(':');
-    const h = parseInt(hours);
-    const ampm = h >= 12 ? 'PM' : 'AM';
-    const h12 = h % 12 || 12;
-    return `${h12}:${minutes} ${ampm}`;
-}
-
-// Month navigation
-document.getElementById('prevMonth')?.addEventListener('click', () => {
-    const today = new Date();
-    if (currentYear > today.getFullYear() || (currentYear === today.getFullYear() && currentMonth > today.getMonth())) {
-        currentMonth--;
-        if (currentMonth < 0) {
-            currentMonth = 11;
-            currentYear--;
-        }
-        renderCalendar();
-    }
-});
-
-document.getElementById('nextMonth')?.addEventListener('click', () => {
-    currentMonth++;
-    if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-    }
-    renderCalendar();
-});
-
-// -----------------------------
 // Final Init
 // -----------------------------
 const yearEl = document.getElementById('year');
@@ -554,6 +409,4 @@ applyLang();
 showStep(1);
 setBusinessLinks();
 loadProgress();
-renderCalendar();
-updateBookNowBtn();
 setupSmsFeature();
