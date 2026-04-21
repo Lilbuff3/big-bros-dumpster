@@ -179,6 +179,7 @@
           class="hidden lg:flex items-center gap-10 mono text-[11px] font-extrabold tracking-[0.22em] uppercase text-zinc-400">
           <a class="hover:text-[var(--orange)]" href="#sizes" data-i18n="nav.sizes">Dumpster Sizes</a>
           <a class="hover:text-[var(--orange)]" href="#pricing" data-i18n="nav.pricing">Get Pricing</a>
+          <a class="hover:text-[var(--orange)]" href="/cleanouts">Cleanouts</a>
           <div class="relative group">
             <button class="hover:text-[var(--orange)] flex items-center gap-1">
               <span>Fresno / Clovis</span>
@@ -207,6 +208,7 @@
         <div class="grid gap-3 mono text-[11px] font-extrabold tracking-[0.22em] uppercase text-zinc-300">
           <a class="block py-3 hover:text-[var(--orange)]" href="#sizes" data-i18n="nav.sizes">Dumpster Sizes</a>
           <a class="block py-3 hover:text-[var(--orange)]" href="#pricing" data-i18n="nav.pricing">Get Pricing</a>
+          <a class="block py-3 hover:text-[var(--orange)]" href="/cleanouts">Cleanouts</a>
           <a class="block py-3 hover:text-[var(--orange)]" href="#area">Service Area</a>
           <a class="block py-3 hover:text-[var(--orange)]" href="#faq" data-i18n="nav.faq">FAQ</a>
           <!-- Language toggle moved here for mobile -->
@@ -291,7 +293,7 @@
         </div>
 
         <!-- Disclaimer: Hidden on mobile -->
-        <p class="hidden sm:block mono text-[11px] uppercase tracking-[0.22em] text-zinc-600 pt-2"
+        <p class="hidden sm:block mono text-[11px] uppercase tracking-[0.22em] text-zinc-500 pt-2"
           data-i18n="hero.disclaimer">
           Final pricing depends on debris type, weight, and location. We'll confirm everything before we roll out.
         </p>
@@ -323,6 +325,25 @@
           class="absolute -bottom-4 -right-3 bg-[var(--orange)] text-black px-4 py-3 mono text-[11px] font-extrabold tracking-[0.22em] uppercase">
           <span data-i18n="hero.ribbon">Ready to Drop</span>
         </div>
+      </div>
+    </section>
+
+    <!-- TRUST BAND: Differentiators -->
+    <section aria-label="Why Big Bros" class="grid grid-cols-1 md:grid-cols-3 gap-px bg-zinc-800 border border-zinc-800">
+      <div class="bg-[#0F0F0F] p-6 sm:p-8 space-y-2">
+        <div class="mono text-[11px] text-[var(--orange)] uppercase tracking-[0.22em]">Same-Day Delivery</div>
+        <h3 class="font-black uppercase italic text-xl">Drops today when open</h3>
+        <p class="text-zinc-400 text-sm">Call or text before 2pm and we'll do our best to drop the same day across Fresno &amp; Clovis.</p>
+      </div>
+      <div class="bg-[#0F0F0F] p-6 sm:p-8 space-y-2">
+        <div class="mono text-[11px] text-[var(--orange)] uppercase tracking-[0.22em]">True Flat Rate</div>
+        <h3 class="font-black uppercase italic text-xl">No fees for mattresses or appliances</h3>
+        <p class="text-zinc-400 text-sm">One quoted price covers mattresses, appliances, and furniture &mdash; no per-item surcharges like the other guys.</p>
+      </div>
+      <div class="bg-[#0F0F0F] p-6 sm:p-8 space-y-2">
+        <div class="mono text-[11px] text-[var(--orange)] uppercase tracking-[0.22em]">Licensed &amp; Local</div>
+        <h3 class="font-black uppercase italic text-xl">Fresno County franchise hauler</h3>
+        <p class="text-zinc-400 text-sm">Licensed by Fresno County &mdash; family-owned and legally authorized to haul in your area.</p>
       </div>
     </section>
 
@@ -593,7 +614,7 @@
                     data-i18n="quote.zipLabel">Delivery ZIP Code</label>
                   <input id="zip" name="zip" inputmode="numeric" maxlength="5" placeholder="93611"
                     class="w-full bg-black border border-zinc-800 p-4 sm:p-5 text-2xl sm:text-3xl font-black tracking-widest focus:border-[var(--orange)] outline-none placeholder:text-zinc-800 uppercase" />
-                  <p id="zipHelp" class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600"
+                  <p id="zipHelp" class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500"
                     data-i18n="quote.zipHelp">We mainly service Fresno/Clovis + nearby. If you’re outside, we’ll
                     confirm.</p>
                   <div id="zipStatus" class="hidden mt-3 border border-zinc-800 bg-black/30 p-3 text-sm"></div>
@@ -672,7 +693,7 @@
                     </label>
                   </div>
 
-                  <p class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600" data-i18n="quote.permitNote">If
+                  <p class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500" data-i18n="quote.permitNote">If
                     it goes on a public street, check city permit rules. We can share what typically works in
                     Fresno/Clovis.</p>
 
@@ -727,7 +748,7 @@
                         class="flex-1 border border-zinc-800 py-4 font-black uppercase italic text-lg hover:border-white hover:bg-white hover:text-black transition"
                         data-i18n="quote.copy">Copy Details</button>
                     </div>
-                    <p class="mt-3 mono text-[11px] uppercase tracking-[0.22em] text-zinc-600"
+                    <p class="mt-3 mono text-[11px] uppercase tracking-[0.22em] text-zinc-500"
                       data-i18n="quote.sendNote">Submitting will open your text or email app with the request
                       pre‑filled.</p>
                   </div>
@@ -915,9 +936,9 @@
           </svg>
           <span data-i18n="footer.review">Review us on Google</span>
         </a>
-        <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600 pt-2" data-i18n="footer.hours">Hours:
+        <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500 pt-2" data-i18n="footer.hours">Hours:
           call/text for delivery times</div>
-        <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-600">© <span id="year"></span> Big Bros
+        <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-500">© <span id="year"></span> Big Bros
           Dumpster Rentals</div>
       </div>
     </div>
