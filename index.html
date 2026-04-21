@@ -190,8 +190,7 @@
             </div>
           </div>
           <a class="hover:text-[var(--orange)]" href="#faq" data-i18n="nav.faq">FAQ</a>
-          <button id="openQuote"
-            class="bg-[var(--orange)] text-black px-6 py-2 hover:bg-white active:scale-95 transition font-black"
+          <button id="openQuote" class="btn-accent focus-ring"
             data-i18n="nav.quote">Get Quote</button>
         </div>
 
@@ -259,10 +258,10 @@
         <!-- Hero CTA -->
         <div class="grid grid-cols-2 sm:flex sm:flex-row gap-3 sm:gap-4 pt-2">
           <a id="textCtaHero" href="sms:+15594958034?&body=Hi%20Big%20Bros%2C%20I%20need%20a%20dumpster%20quote.%20ZIP%3A%20"
-            class="bg-white text-black px-5 sm:px-7 py-3 sm:py-4 font-black uppercase italic text-base sm:text-lg hover:bg-[var(--orange)] transition focus-ring text-center animate-pulse-orange"
+            class="btn-primary btn-lg focus-ring animate-pulse-orange"
             data-i18n="hero.textQuote">Text for Quote</a>
           <a href="tel:+15594958034"
-            class="border border-zinc-700 text-white px-5 sm:px-7 py-3 sm:py-4 font-black uppercase italic text-base sm:text-lg hover:bg-white hover:text-black transition focus-ring text-center"
+            class="btn-secondary btn-lg focus-ring"
             data-i18n="hero.callQuote">Call for Quote</a>
         </div>
 
@@ -313,7 +312,7 @@
                 <div class="text-zinc-400 text-sm" data-i18n="hero.cardUse">Cleanouts • Small Remodels</div>
               </div>
               <button
-                class="border border-zinc-700 hover:border-[var(--orange)] px-4 py-2 mono text-[11px] uppercase tracking-[0.22em]"
+                class="border border-zinc-700 hover:border-[var(--orange)] hover:text-[var(--orange)] transition px-4 py-2 mono text-[11px] uppercase tracking-[0.22em] focus-ring"
                 id="select14" data-size="14" data-i18n="hero.select">Select This Size</button>
             </div>
           </div>
@@ -327,7 +326,7 @@
     </section>
 
     <!-- REVIEWS -->
-    <section id="reviews" class="space-y-8">
+    <section id="reviews" class="space-y-8 surface-1 section-bleed py-16 sm:py-20">
       <div>
         <h2 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter">What Customers Say</h2>
         <p class="mono text-[11px] text-zinc-400 uppercase tracking-[0.22em] mt-1">
@@ -367,7 +366,7 @@
       <div class="flex items-center justify-between">
         <p class="mono text-[11px] text-zinc-500 uppercase tracking-[0.18em]">Happy customer? <span class="text-white">Leave us a review on Google</span></p>
         <a id="googleReviewBtn" href="https://g.page/r/CXZ1QsLG5e_dEBM/review" target="_blank" rel="noopener noreferrer"
-          class="bg-[var(--orange)] text-black px-5 py-3 font-black uppercase italic text-sm hover:bg-white transition focus-ring">
+          class="btn-primary btn-sm focus-ring">
           Review on Google
         </a>
       </div>
@@ -439,7 +438,7 @@
     </section>
 
     <!-- SIZES -->
-    <section id="sizes" class="space-y-8">
+    <section id="sizes" class="space-y-8 surface-1 section-bleed py-16 sm:py-20">
       <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h2 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter" data-i18n="sizes.title">Dumpster
@@ -500,7 +499,7 @@
           </div>
 
           <button
-            class="w-full py-3 border border-zinc-700 hover:bg-white hover:text-black hover:border-white transition font-black uppercase italic"
+            class="btn-secondary w-full focus-ring"
             data-size-pick="14" data-i18n="sizes.select">Select 14 Yard</button>
         </article>
 
@@ -549,7 +548,7 @@
           </div>
 
           <button
-            class="w-full py-3 border border-zinc-700 hover:bg-white hover:text-black hover:border-white transition font-black uppercase italic"
+            class="btn-secondary w-full focus-ring"
             data-size-pick="20" data-i18n="sizes.select20">Select 20 Yard</button>
         </article>
       </div>
@@ -610,14 +609,14 @@
                   </div>
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <button type="button"
-                      class="sizeBtn p-5 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
+                      class="sizeBtn selector focus-ring p-5"
                       data-value="14">
                       <div class="font-black uppercase italic text-2xl">14 Yard <span class="text-[var(--orange)]">$399</span></div>
                       <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-400" data-i18n="quote.size14">
                         Cleanouts • small remodels</div>
                     </button>
                     <button type="button"
-                      class="sizeBtn p-5 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left transition"
+                      class="sizeBtn selector focus-ring p-5"
                       data-value="20">
                       <div class="font-black uppercase italic text-2xl">20 Yard <span class="text-[var(--orange)]">$499</span></div>
                       <div class="mono text-[11px] uppercase tracking-[0.22em] text-zinc-400" data-i18n="quote.size20">
@@ -638,16 +637,16 @@
                   </div>
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <button type="button"
-                      class="debrisBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left font-bold uppercase italic text-sm transition"
+                      class="debrisBtn selector focus-ring font-bold uppercase italic text-sm"
                       data-value="Household junk" data-i18n="debris.household">Household junk</button>
                     <button type="button"
-                      class="debrisBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left font-bold uppercase italic text-sm transition"
+                      class="debrisBtn selector focus-ring font-bold uppercase italic text-sm"
                       data-value="Construction debris" data-i18n="debris.construction">Construction debris</button>
                     <button type="button"
-                      class="debrisBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left font-bold uppercase italic text-sm transition"
+                      class="debrisBtn selector focus-ring font-bold uppercase italic text-sm"
                       data-value="Yard waste" data-i18n="debris.yard">Yard waste</button>
                     <button type="button"
-                      class="debrisBtn p-4 border border-zinc-800 hover:border-[var(--orange)] bg-black text-left font-bold uppercase italic text-sm transition"
+                      class="debrisBtn selector focus-ring font-bold uppercase italic text-sm"
                       data-value="Concrete / dirt (heavy)" data-i18n="debris.heavy">Concrete / dirt (heavy)</button>
                   </div>
                   <input type="hidden" id="debris" name="debris" value="" />
@@ -678,8 +677,7 @@
 
                   <div class="pt-2">
                     <button type="button" id="toStep4"
-                      class="w-full bg-[var(--orange)] text-black py-4 font-black uppercase italic text-lg hover:bg-white transition">Next
-                      →</button>
+                      class="btn-primary btn-lg focus-ring w-full">Next →</button>
                   </div>
                 </div>
 
@@ -721,10 +719,10 @@
                     <pre id="summary" class="mt-2 whitespace-pre-wrap text-zinc-200 text-sm"></pre>
                     <div class="mt-3 flex flex-col sm:flex-row gap-3">
                       <button type="submit"
-                        class="flex-1 bg-[var(--orange)] text-black py-4 font-black uppercase italic text-lg hover:bg-white transition"
+                        class="btn-primary btn-lg focus-ring flex-1"
                         data-i18n="quote.send">Send Request</button>
                       <button type="button" id="copyBtn"
-                        class="flex-1 border border-zinc-800 py-4 font-black uppercase italic text-lg hover:border-white hover:bg-white hover:text-black transition"
+                        class="btn-secondary btn-lg focus-ring flex-1"
                         data-i18n="quote.copy">Copy Details</button>
                     </div>
                     <p class="mt-3 mono text-[11px] uppercase tracking-[0.22em] text-zinc-600"
@@ -735,7 +733,7 @@
 
                 <div class="pt-2">
                   <button type="button" id="nextBtn"
-                    class="w-full bg-[var(--orange)] text-black py-4 font-black uppercase italic text-lg hover:bg-white transition"
+                    class="btn-primary btn-lg focus-ring w-full"
                     data-i18n="quote.next">Next →</button>
                 </div>
               </form>
@@ -773,10 +771,10 @@
                   today?</div>
                 <div class="mt-2 flex flex-col gap-3">
                   <a id="callSide" href="tel:+15594958034"
-                    class="bg-white text-black py-3 text-center font-black uppercase italic hover:bg-[var(--orange)] transition focus-ring"
+                    class="btn-primary focus-ring"
                     data-i18n="cta.call">Call the bros</a>
                   <a id="textSide" href="sms:+15594958034"
-                    class="border border-zinc-800 py-3 text-center font-black uppercase italic hover:border-[var(--orange)] hover:text-[var(--orange)] transition focus-ring"
+                    class="btn-secondary focus-ring"
                     data-i18n="cta.text">Text the bros</a>
                 </div>
               </div>
@@ -787,7 +785,7 @@
     </section>
 
     <!-- SERVICE AREA -->
-    <section id="area" class="space-y-8">
+    <section id="area" class="space-y-8 surface-2 section-bleed py-16 sm:py-20">
       <div>
         <h2 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter" data-i18n="area.title">Service
           Area</h2>
@@ -827,7 +825,7 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="space-y-6">
+    <section id="faq" class="space-y-6 surface-1 section-bleed py-16 sm:py-20">
       <div>
         <h2 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter" data-i18n="faq.title">FAQ</h2>
         <p class="mono text-[11px] text-zinc-400 uppercase tracking-[0.22em]" data-i18n="faq.kicker">Questions we hear
@@ -927,11 +925,11 @@
   <div class="fixed bottom-0 left-0 right-0 z-50 sticky-glass lg:hidden">
     <div class="max-w-7xl mx-auto px-4 py-3 grid grid-cols-3 gap-2">
       <a id="callSticky" href="tel:+15594958034"
-        class="text-center bg-white text-black py-3 font-black uppercase italic text-sm">Call</a>
+        class="btn-primary btn-sm focus-ring">Call</a>
       <a id="textSticky" href="#"
-        class="text-center border border-zinc-800 text-white hover:text-[var(--orange)] py-3 font-black uppercase italic text-sm">Text</a>
+        class="btn-secondary btn-sm focus-ring">Text</a>
       <button id="quoteSticky"
-        class="text-center bg-[var(--orange)] text-black py-3 font-black uppercase italic text-sm">Quote</button>
+        class="btn-primary btn-sm focus-ring">Quote</button>
     </div>
   </div>
 
@@ -984,11 +982,11 @@
           <p class="text-zinc-400" data-i18n="modal.body">We’ll scroll you to the quote section. If you prefer,
             call/Text the Bros for fastest response.</p>
           <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
-            <button id="modalGo" class="bg-[var(--orange)] text-black py-3 font-black uppercase italic"
+            <button id="modalGo" class="btn-primary focus-ring"
               data-i18n="modal.go">Go to Form</button>
             <a id="modalCall" href="tel:+15594958034"
-              class="bg-white text-black py-3 font-black uppercase italic text-center" data-i18n="modal.call">Call</a>
-            <a id="modalText" href="#" class="border border-zinc-800 py-3 font-black uppercase italic text-center"
+              class="btn-primary focus-ring" data-i18n="modal.call">Call</a>
+            <a id="modalText" href="#" class="btn-secondary focus-ring"
               data-i18n="modal.text">Text</a>
           </div>
         </div>
