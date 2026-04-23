@@ -26,7 +26,7 @@ No-nonsense, trades-first, local. Short declarative sentences. "Talk direct to t
 
 Every landing page (index, city pages, service pages) must surface these prominently — they're the real wedge against national competitors:
 
-1. **Same-day delivery, always** — the bros are reachable 24/7 (call or text anytime) and make same-day drops happen across Fresno & Clovis.
+1. **We make same-day happen** — the bros are reachable 24/7 (call or text anytime) and work to get the drop done the same day across Fresno & Clovis.
 2. **True flat rate** — the quoted price covers mattresses, appliances, and furniture. No per-item surcharges. Competitors tack on fees for these; Big Bros does not.
 3. **Licensed hauler with a Fresno County franchise agreement** — legally authorized to operate, unlike fly-by-night brokers.
 
