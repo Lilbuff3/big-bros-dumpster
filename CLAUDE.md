@@ -20,17 +20,30 @@ When creating a new top-level page, use `contractors.html` as the template — i
 
 ## Brand voice
 
-No-nonsense, trades-first, local. Short declarative sentences. "Talk direct to the bros, not a broker." Italic uppercase headlines are the house style. Don't soften it.
+No-nonsense, trades-first, local. Short declarative sentences. **The Big Bros are here to help — they work with people to make it work.** Italic uppercase headlines are the house style. Don't soften it. Avoid anti-competitor framing ("not a broker", "no call centers") — lead with what the Bros DO, not what others don't.
 
-## The three differentiators
+## Motto
 
-Every landing page (index, city pages, service pages) must surface these prominently — they're the real wedge against national competitors:
+**"We Drop Off, You Load Up."** This is the hero H1 on every landing page. Render in italic uppercase, with "YOU" in muted gray (`text-zinc-700`) for visual rhythm. The shared `data-i18n` keys are `hero.title1` ("We Drop Off"), `hero.title2` ("You", muted), `hero.title3` ("Load Up").
 
-1. **We make same-day happen** — the bros are reachable 24/7 (call or text anytime) and work to get the drop done the same day across Fresno & Clovis.
-2. **True flat rate** — the quoted price covers mattresses, appliances, and furniture. No per-item surcharges. Competitors tack on fees for these; Big Bros does not.
-3. **Licensed hauler with a Fresno County franchise agreement** — legally authorized to operate, unlike fly-by-night brokers.
+## The four differentiators
 
-There's a shared "trust band" component pattern (3-up grid after the hero) that carries these messages. Copy the markup from `index.html` when adding a new landing page.
+Every landing page must surface these prominently — they're the real wedge against national competitors. Use a 4-up trust band (`md:grid-cols-2 lg:grid-cols-4`) right after the hero.
+
+1. **Same-day & next-day delivery** — biggest local fleet (20+ roll-offs, more than any other Fresno/Clovis hauler) means the Bros can almost always make it happen. Frame as capability, not a stat — say "biggest local fleet" rather than naming the number on the page.
+2. **True flat rate** — the quoted price covers mattresses, appliances, tires, and furniture. No per-item surcharges. Competitors tack on $40+ per item.
+3. **Keep it up to 7 days** — most rentals run a full week at the quoted rate. Need it longer? Talk to the Bros — they work with you.
+4. **Here to help** — local family operation. Answer the phone, work with your schedule, make it right.
+
+The Fresno County franchise / licensed-hauler line is still true and belongs in the FAQ and footer — but it's no longer one of the top differentiators on the hero or trust band.
+
+## Competitor comparison section
+
+Landing pages (especially `index.html`, `fresno.html`, `clovis.html`, `cleanouts.html`) include a "Compare The Other Guys" section. Show real surcharges competitors add: same-day fees ($50), per-day overages ($15–45/day after day 3), per-item fees for mattresses/appliances/tires ($40+ each). The point is that competitors' "low" starting price balloons fast. Footnote: "Surcharges based on advertised pricing from regional and national haulers."
+
+## Cleanouts page
+
+`cleanouts.html` leads with the "Big Bros are here to help" framing — this is the empathy-forward page for estate cleanouts, hoarder cleanups, post-tenant clears, and grief-adjacent jobs. Keep the motto in the hero, but in the supporting copy emphasize that the Bros work with the customer's pace and circumstances.
 
 ## SEO conventions
 
