@@ -4,9 +4,9 @@ Website for Big Bros Dumpster Rentals, a family-owned roll-off dumpster service 
 
 ## Stack
 
-- **Static HTML**, one file per route. No framework, no build step, no bundler.
-- **Tailwind CSS v4** via CDN (`https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4`) — use utility classes directly in markup.
-- **Vanilla JS** for interactivity: `js/main.js` (booking UI, modals), `js/i18n.js` (EN/ES toggle via `data-i18n` attributes).
+- **Static HTML**, one file per route. No framework, no bundler.
+- **Tailwind CSS v4** compiled locally via the Tailwind CLI. Source: `css/tailwind.src.css`. Output: `css/tailwind.css` (checked in, linked by every page). After editing HTML classes or `tailwind.src.css`, run `npm run build` (or `npm run watch` during development). The CDN runtime compiler is **not** used — it caused a zoomed-out flash on mobile.
+- **Vanilla JS** for interactivity: `js/app.js` (booking UI, modals), `js/i18n.js` (EN/ES toggle via `data-i18n` attributes).
 - **Custom CSS tokens** in `css/styles.css` — `--orange: #FF5F00`, `--black: #0A0A0A`, plus `.glass`, `.mono`, `.focus-ring`, `.noise` utilities. Don't add new stylesheet files.
 - **Deployed to Vercel** (see `vercel.json`). Clean URLs enabled — internal links can be written as `/fresno` or `fresno.html`.
 
@@ -26,7 +26,7 @@ No-nonsense, trades-first, local. Short declarative sentences. "Talk direct to t
 
 Every landing page (index, city pages, service pages) must surface these prominently — they're the real wedge against national competitors:
 
-1. **Same-day delivery** when inventory is open (call/text before 2pm)
+1. **We make same-day happen** — the bros are reachable 24/7 (call or text anytime) and work to get the drop done the same day across Fresno & Clovis.
 2. **True flat rate** — the quoted price covers mattresses, appliances, and furniture. No per-item surcharges. Competitors tack on fees for these; Big Bros does not.
 3. **Licensed hauler with a Fresno County franchise agreement** — legally authorized to operate, unlike fly-by-night brokers.
 
@@ -56,7 +56,8 @@ There's a shared "trust band" component pattern (3-up grid after the hero) that 
 
 ## What NOT to do
 
-- Don't install npm dependencies, don't introduce a build step, don't add a framework.
+- Don't add a framework or a bundler. The only build step is the Tailwind CLI (`npm run build`) — don't replace it with webpack/Vite/Parcel.
+- Don't re-introduce the Tailwind Browser CDN script — always use the compiled `css/tailwind.css`.
 - Don't add new CSS files — extend `css/styles.css` or use Tailwind utilities.
 - Don't add `aggregateRating` without real review data.
 - Don't duplicate a city page for an unserved area. Current service area is Fresno + Clovis (plus surrounding Fresno County). Don't create pages for Sanger, Selma, Kerman, or Madera without confirmation.
