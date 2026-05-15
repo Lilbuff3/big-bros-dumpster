@@ -2,9 +2,9 @@
 // Config (replace with real values)
 // -----------------------------
 const BUSINESS = {
-    phoneDisplay: "559-495-8034",
-    phoneTel: "+15594958034",
-    smsNumber: "+15594958034",
+    phoneDisplay: "559-629-0474",
+    phoneTel: "+15596290474",
+    smsNumber: "+15596290474",
     email: "will@bigbrosdumpster.com",
     googleReviewUrl: "https://g.page/r/CXZ1QsLG5e_dEBM/review"
 };
