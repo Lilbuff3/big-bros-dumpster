@@ -51,8 +51,8 @@ There's a shared "trust band" component pattern (3-up grid after the hero) that 
 
 ## Phone / contact
 
-- Phone: `+1-559-629-0474` → display as `559‑629‑0474` (non-breaking hyphens `&#8209;` or `‑`)
-- SMS body prefill pattern: `sms:+15596290474?&body=...` URL-encoded
+- Phone: `+1-559-495-8034` → display as `(559) 495‑8034` (non-breaking hyphens `&#8209;` or `‑`)
+- SMS body prefill pattern: `sms:+15594958034?&body=...` URL-encoded
 
 ## What NOT to do
 
