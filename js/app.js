@@ -375,7 +375,7 @@ function setupSmsFeature() {
     const smsHref = `sms:${BUSINESS.smsNumber}?&body=${smsBody}`;
     
     // Set QR code (using api.qrserver.com)
-    if (qrImage) {
+    if (qrImage && !qrImage.dataset.customSms) {
         const qrContent = encodeURIComponent(`SMSTO:${BUSINESS.smsNumber}:Hi Big Bros, I need a dumpster quote. ZIP: `);
         qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrContent}`;
         qrImage.classList.remove('hidden');
@@ -401,6 +401,232 @@ function setupSmsFeature() {
 }
 
 // -----------------------------
+// Booking Calendar Interactivity
+// -----------------------------
+function setupCalendar() {
+    const calendarMonth = _qS("#calendarMonth");
+    const calendarDays = _qS("#calendarDays");
+    const prevMonthBtn = _qS("#prevMonth");
+    const nextMonthBtn = _qS("#nextMonth");
+    const selectedDateLabel = _qS("#selectedDate");
+    const timeSlots = _qSA("#timeSlots .timeSlot");
+    const bookingSizeBtns = _qSA(".bookingSizeBtn");
+    const bookingDebrisSelect = _qS("#bookingDebris");
+    const bookNowBtn = _qS("#bookNowBtn");
+    const smsModal = _qS("#smsModal");
+    const qrImage = _qS("#smsQrCode");
+
+    if (!calendarDays || !bookNowBtn) return; // Exit if no calendar on page
+
+    let displayedMonth = new Date();
+    let selectedDate = null;
+    let selectedTimeSlot = null;
+    let selectedSize = null;
+    let selectedDebris = bookingDebrisSelect?.value || "Household Junk";
+
+    function getDaysInMonth(year, month) {
+        return new Date(year, month + 1, 0).getDate();
+    }
+
+    function renderCalendar() {
+        const year = displayedMonth.getFullYear();
+        const month = displayedMonth.getMonth();
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        // Update Header Month/Year
+        if (calendarMonth) {
+            calendarMonth.textContent = displayedMonth.toLocaleString(lang === 'es' ? 'es-ES' : 'en-US', {
+                month: 'long',
+                year: 'numeric'
+            });
+        }
+
+        // Disable Prev Month if displayedMonth is current month
+        if (prevMonthBtn) {
+            const isCurrentMonth = year === today.getFullYear() && month === today.getMonth();
+            prevMonthBtn.disabled = isCurrentMonth;
+            prevMonthBtn.style.opacity = isCurrentMonth ? "0.4" : "1";
+            prevMonthBtn.style.cursor = isCurrentMonth ? "not-allowed" : "pointer";
+        }
+
+        // Clear Days
+        calendarDays.innerHTML = "";
+
+        // First day of the month (0 = Sunday, 1 = Monday, etc.)
+        const firstDayIndex = new Date(year, month, 1).getDay();
+        const daysInMonth = getDaysInMonth(year, month);
+
+        // Render Empty cells for padding
+        for (let i = 0; i < firstDayIndex; i++) {
+            const emptyCell = document.createElement("div");
+            calendarDays.appendChild(emptyCell);
+        }
+
+        // Render Day cells
+        for (let day = 1; day <= daysInMonth; day++) {
+            const cellDate = new Date(year, month, day);
+            const isPast = cellDate < today;
+            const isSelected = selectedDate && cellDate.toDateString() === selectedDate.toDateString();
+
+            const cell = document.createElement("button");
+            cell.type = "button";
+            cell.textContent = String(day);
+            cell.className = "p-3 border border-zinc-800/40 text-center text-sm transition font-bold select-none cursor-pointer rounded-lg";
+
+            if (isPast) {
+                cell.className = "p-3 text-zinc-600 text-center text-sm cursor-not-allowed select-none opacity-40";
+                cell.disabled = true;
+            } else if (isSelected) {
+                cell.className = "p-3 bg-[var(--orange)] text-black font-black text-center text-sm rounded-lg";
+            } else {
+                cell.className = "p-3 border border-zinc-800/40 hover:border-[var(--orange)] hover:text-[var(--orange)] text-center text-sm transition font-bold cursor-pointer rounded-lg";
+                cell.addEventListener("click", () => {
+                    selectedDate = cellDate;
+                    renderCalendar();
+                    updateSelectedDateLabel();
+                    updateSmsLink();
+                });
+            }
+
+            calendarDays.appendChild(cell);
+        }
+    }
+
+    function updateSelectedDateLabel() {
+        if (!selectedDateLabel) return;
+        if (selectedDate) {
+            selectedDateLabel.textContent = selectedDate.toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            });
+            selectedDateLabel.classList.remove('text-zinc-500');
+            selectedDateLabel.classList.add('text-white');
+        } else {
+            selectedDateLabel.textContent = lang === 'es' ? "Seleccione una fecha" : "Select a date";
+            selectedDateLabel.classList.remove('text-white');
+            selectedDateLabel.classList.add('text-zinc-500');
+        }
+    }
+
+    function updateSmsLink() {
+        if (!selectedDate) {
+            bookNowBtn.href = "#";
+            return;
+        }
+
+        const dateStr = selectedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        const timeStr = selectedTimeSlot ? selectedTimeSlot : "(choose time)";
+        const sizeStr = selectedSize ? `${selectedSize}yd` : "(choose size)";
+        
+        let msg = `Hi Big Bros — I want to check availability for a dumpster drop-off:\n`;
+        msg += `Date: ${dateStr}\n`;
+        msg += `Time slot: ${timeStr}\n`;
+        msg += `Size: ${sizeStr}\n`;
+        msg += `Debris: ${selectedDebris}`;
+
+        const smsHref = `sms:${BUSINESS.smsNumber}?&body=${encodeURIComponent(msg)}`;
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+            bookNowBtn.href = smsHref;
+            bookNowBtn.removeAttribute('target');
+        } else {
+            bookNowBtn.href = "#";
+            // Set dynamic QR code generation
+            if (qrImage) {
+                qrImage.dataset.customSms = "true";
+                const qrContent = encodeURIComponent(`SMSTO:${BUSINESS.smsNumber}:${msg}`);
+                qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrContent}`;
+                qrImage.classList.remove('hidden');
+            }
+        }
+    }
+
+    // Month Navigation Listeners
+    if (prevMonthBtn) {
+        prevMonthBtn.addEventListener("click", () => {
+            displayedMonth.setMonth(displayedMonth.getMonth() - 1);
+            renderCalendar();
+        });
+    }
+
+    if (nextMonthBtn) {
+        nextMonthBtn.addEventListener("click", () => {
+            displayedMonth.setMonth(displayedMonth.getMonth() + 1);
+            renderCalendar();
+        });
+    }
+
+    // Time Slot Click Listeners
+    timeSlots.forEach(slot => {
+        slot.addEventListener("click", () => {
+            timeSlots.forEach(s => s.classList.remove("bg-[var(--orange)]", "text-black", "border-[var(--orange)]"));
+            slot.classList.add("bg-[var(--orange)]", "text-black", "border-[var(--orange)]");
+            selectedTimeSlot = slot.getAttribute("data-time") || slot.textContent;
+            // Format time for user display if needed
+            updateSmsLink();
+        });
+    });
+
+    // Dumpster Size Buttons
+    bookingSizeBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            bookingSizeBtns.forEach(b => b.classList.remove("border-[var(--orange)]", "text-[var(--orange)]"));
+            btn.classList.add("border-[var(--orange)]", "text-[var(--orange)]");
+            selectedSize = btn.getAttribute("data-size");
+            updateSmsLink();
+        });
+    });
+
+    // Debris Select
+    if (bookingDebrisSelect) {
+        bookingDebrisSelect.addEventListener("change", (e) => {
+            selectedDebris = e.target.value;
+            updateSmsLink();
+        });
+    }
+
+    // Book Now Click (Validation on Desktop fallback)
+    bookNowBtn.addEventListener("click", (e) => {
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        
+        if (!selectedDate) {
+            e.preventDefault();
+            alert(lang === 'es' ? "Por favor, seleccione una fecha en el calendario." : "Please select a date on the calendar.");
+            calendarDays.scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+        }
+
+        if (!selectedTimeSlot) {
+            e.preventDefault();
+            alert(lang === 'es' ? "Por favor, elija un horario de entrega." : "Please choose a delivery time slot.");
+            _qS("#timeSlots")?.scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+        }
+
+        if (!selectedSize) {
+            e.preventDefault();
+            alert(lang === 'es' ? "Por favor, elija el tamaño del contenedor." : "Please choose a dumpster size.");
+            _qS(".bookingSizeBtn")?.scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+        }
+
+        if (!isMobile) {
+            e.preventDefault();
+            smsModal?.classList.remove('hidden');
+        }
+    });
+
+    // Initial render
+    renderCalendar();
+    updateSelectedDateLabel();
+    updateSmsLink();
+}
+
+// -----------------------------
 // Final Init
 // -----------------------------
 const yearEl = document.getElementById('year');
@@ -410,3 +636,5 @@ showStep(1);
 setBusinessLinks();
 loadProgress();
 setupSmsFeature();
+setupCalendar();
+
