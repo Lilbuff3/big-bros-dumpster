@@ -1,14 +1,16 @@
 :root {
-    --ground: var(--color-ground, #FBF9F6);
+    --ground: var(--color-ground, #F7F5EE);
     --card: var(--color-card, #FFFFFF);
-    --ink: var(--color-ink, #231F1A);
-    --stone: var(--color-stone, #6E655A);
-    --hairline: var(--color-hairline, #E8E2D9);
-    --orange: var(--color-orange, #E85700);
-    --orange-deep: var(--color-orange-deep, #C94B00);
-    --orange-wash: var(--color-orange-wash, #FBEADF);
-    --green: var(--color-green, #3E7C4F);
-    --green-wash: var(--color-green-wash, #E9F2EB);
+    --ink: var(--color-ink, #1F2A22);
+    --stone: var(--color-stone, #66716A);
+    --hairline: var(--color-hairline, #DEE3D6);
+    --orange: var(--color-orange, #B9713F);
+    --orange-deep: var(--color-orange-deep, #96582E);
+    --orange-wash: var(--color-orange-wash, #F3E6D8);
+    --green: var(--color-green, #3F6E52);
+    --green-wash: var(--color-green-wash, #E6EDE3);
+    --forest: var(--color-forest, #1B3A2C);
+    --forest-deep: var(--color-forest-deep, #12261D);
 }
 
 *,
@@ -34,8 +36,101 @@ body {
 }
 
 .font-display {
-    font-family: "Bricolage Grotesque", Outfit, system-ui, sans-serif;
-    letter-spacing: -0.02em;
+    font-family: "Fraunces", Outfit, system-ui, serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.01em;
+}
+
+/* ─── Eyebrow (dot + label) ─── */
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--orange-deep);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    flex: none;
+}
+
+.eyebrow--light {
+    color: #D9C9AE;
+}
+
+/* ─── Dark forest band ─── */
+.band-forest {
+    background: var(--forest);
+    color: #F4F1E6;
+    border-radius: 20px;
+}
+
+.band-forest .btn-ghost {
+    border-color: rgba(244, 241, 230, 0.28);
+    color: #F4F1E6;
+}
+
+.band-forest .btn-ghost:hover {
+    border-color: #E8C9A6;
+    color: #E8C9A6;
+}
+
+.band-forest .pill-promise {
+    background: rgba(244, 241, 230, 0.1);
+    color: #E8C9A6;
+}
+
+/* ─── Framed photo (inset line frame; add .frame-photo--tilt where there's room to rotate) ─── */
+.frame-photo {
+    position: relative;
+    overflow: hidden;
+}
+
+.frame-photo::after {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.frame-photo--tilt {
+    transform: rotate(1.4deg);
+}
+
+/* ─── Numbered process with dashed connector ─── */
+.process-step {
+    position: relative;
+}
+
+.process-step .process-number {
+    font-family: "Fraunces", serif;
+    font-size: 22px;
+    color: var(--stone);
+    letter-spacing: -0.03em;
+}
+
+.process-line {
+    border-top: 1px dashed var(--hairline);
+    position: absolute;
+    top: 27px;
+    left: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+@media (max-width: 1023px) {
+    .process-line { display: none; }
 }
 
 .mono {
@@ -354,6 +449,10 @@ button:active, a[class*="bg-"]:active {
     display: none;
 }
 
+.band-forest p {
+    color: #C9D5CD;
+}
+
 /* ─── Card hover lift (calm) ─── */
 article.group {
     transition: transform 0.25s ease,
@@ -370,7 +469,12 @@ article.group:hover {
 
 /* ─── FAQ detail open animation ─── */
 details.faq summary {
+    list-style: none;
     transition: color 0.2s ease;
+}
+
+details.faq summary::-webkit-details-marker {
+    display: none;
 }
 
 details.faq[open] summary {
@@ -379,6 +483,26 @@ details.faq[open] summary {
 
 details.faq > div {
     animation: fadeSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid var(--hairline);
+    color: var(--orange-deep);
+    flex: none;
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+details.faq[open] .faq-toggle {
+    background: var(--orange);
+    color: #fff;
+    border-color: var(--orange);
+    transform: rotate(45deg);
 }
 
 /* ─── Headline tracking ─── */
