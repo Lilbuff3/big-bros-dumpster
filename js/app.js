@@ -28,9 +28,8 @@ function setBusinessLinks() {
         const el = document.getElementById(id);
         if (el) { el.href = sms; }
     });
-    // Update visible phone text instances
-    const reviewBtn = document.getElementById("googleReviewBtn");
-    if (reviewBtn) { reviewBtn.href = BUSINESS.googleReviewUrl; }
+    // Google review links: id (legacy) or data-review-link (multiple per page)
+    _qSA('#googleReviewBtn, [data-review-link]').forEach(el => { el.href = BUSINESS.googleReviewUrl; });
 }
 
 // -----------------------------
@@ -120,7 +119,7 @@ function validateZip() {
 
     if (!/^\d{5}$/.test(zip)) {
         status.classList.remove('hidden');
-        status.className = "mt-3 border border-zinc-800 bg-black/30 p-3 text-sm text-zinc-300";
+        status.className = "mt-3 rounded-lg border p-3 text-sm zip-err";
         status.textContent = lang === 'es' ? "Ingresa un ZIP de 5 dígitos." : "Enter a 5-digit ZIP.";
         return false;
     }
@@ -128,8 +127,8 @@ function validateZip() {
     const isCore = coreZips.has(zip);
     status.classList.remove('hidden');
     status.className = isCore
-        ? "mt-3 border border-emerald-500/40 bg-emerald-500/10 p-3 text-sm text-emerald-200"
-        : "mt-3 border border-[var(--orange)]/40 bg-[var(--orange)]/10 p-3 text-sm text-zinc-100";
+        ? "mt-3 rounded-lg border p-3 text-sm zip-ok"
+        : "mt-3 rounded-lg border p-3 text-sm zip-out";
 
     status.textContent = isCore
         ? (lang === 'es' ? "Dentro de zona principal (Fresno/Clovis)." : "Within core service area (Fresno/Clovis).")
@@ -187,9 +186,9 @@ function setSizeAndAdvance(val) {
 function setDebris(val) {
     _qS("#debris").value = val;
     // Stay on step 3; user can set date/placement then next
-    _qSA(".debrisBtn").forEach(b => b.classList.remove("border-[var(--orange)]", "text-[var(--orange)]"));
+    _qSA(".debrisBtn").forEach(b => b.classList.remove("is-selected"));
     const btn = _qS(`.debrisBtn[data-value="${CSS.escape(val)}"]`);
-    btn?.classList.add("border-[var(--orange)]", "text-[var(--orange)]");
+    btn?.classList.add("is-selected");
 }
 
 // Step nav
@@ -221,8 +220,8 @@ _qSA(".sizeBtn").forEach(btn => {
     btn.addEventListener('click', () => {
         const val = btn.getAttribute('data-value');
         _qS("#size").value = val;
-        _qSA(".sizeBtn").forEach(b => b.classList.remove("border-[var(--orange)]"));
-        btn.classList.add("border-[var(--orange)]");
+        _qSA(".sizeBtn").forEach(b => b.classList.remove("is-selected"));
+        btn.classList.add("is-selected");
         showStep(3);
     });
 });
@@ -321,8 +320,8 @@ _qS("#copyBtn")?.addEventListener('click', async () => {
         const btn = _qS("#copyBtn");
         const old = btn.textContent;
         btn.textContent = lang === 'es' ? "Error al copiar" : "Copy failed";
-        btn.classList.add("border-red-500", "text-red-400");
-        setTimeout(() => { btn.textContent = old; btn.classList.remove("border-red-500", "text-red-400"); }, 1500);
+        btn.classList.add("border-red-600", "text-red-600");
+        setTimeout(() => { btn.textContent = old; btn.classList.remove("border-red-600", "text-red-600"); }, 1500);
     }
 });
 
@@ -472,15 +471,14 @@ function setupCalendar() {
             const cell = document.createElement("button");
             cell.type = "button";
             cell.textContent = String(day);
-            cell.className = "p-3 border border-zinc-800/40 text-center text-sm transition font-bold select-none cursor-pointer rounded-lg";
+            cell.className = "cal-cell font-semibold select-none";
 
             if (isPast) {
-                cell.className = "p-3 text-zinc-600 text-center text-sm cursor-not-allowed select-none opacity-40";
+                cell.className = "cal-cell cal-cell--past select-none";
                 cell.disabled = true;
             } else if (isSelected) {
-                cell.className = "p-3 bg-[var(--orange)] text-black font-black text-center text-sm rounded-lg";
+                cell.className = "cal-cell cal-cell--selected font-bold select-none";
             } else {
-                cell.className = "p-3 border border-zinc-800/40 hover:border-[var(--orange)] hover:text-[var(--orange)] text-center text-sm transition font-bold cursor-pointer rounded-lg";
                 cell.addEventListener("click", () => {
                     selectedDate = cellDate;
                     renderCalendar();
@@ -502,12 +500,12 @@ function setupCalendar() {
                 day: 'numeric',
                 year: 'numeric'
             });
-            selectedDateLabel.classList.remove('text-zinc-500');
-            selectedDateLabel.classList.add('text-white');
+            selectedDateLabel.classList.remove('text-stone');
+            selectedDateLabel.classList.add('text-ink');
         } else {
             selectedDateLabel.textContent = lang === 'es' ? "Seleccione una fecha" : "Select a date";
-            selectedDateLabel.classList.remove('text-white');
-            selectedDateLabel.classList.add('text-zinc-500');
+            selectedDateLabel.classList.remove('text-ink');
+            selectedDateLabel.classList.add('text-stone');
         }
     }
 
@@ -563,8 +561,8 @@ function setupCalendar() {
     // Time Slot Click Listeners
     timeSlots.forEach(slot => {
         slot.addEventListener("click", () => {
-            timeSlots.forEach(s => s.classList.remove("bg-[var(--orange)]", "text-black", "border-[var(--orange)]"));
-            slot.classList.add("bg-[var(--orange)]", "text-black", "border-[var(--orange)]");
+            timeSlots.forEach(s => s.classList.remove("is-selected"));
+            slot.classList.add("is-selected");
             selectedTimeSlot = slot.getAttribute("data-time") || slot.textContent;
             // Format time for user display if needed
             updateSmsLink();
@@ -574,8 +572,8 @@ function setupCalendar() {
     // Dumpster Size Buttons
     bookingSizeBtns.forEach(btn => {
         btn.addEventListener("click", () => {
-            bookingSizeBtns.forEach(b => b.classList.remove("border-[var(--orange)]", "text-[var(--orange)]"));
-            btn.classList.add("border-[var(--orange)]", "text-[var(--orange)]");
+            bookingSizeBtns.forEach(b => b.classList.remove("is-selected"));
+            btn.classList.add("is-selected");
             selectedSize = btn.getAttribute("data-size");
             updateSmsLink();
         });
@@ -627,6 +625,26 @@ function setupCalendar() {
 }
 
 // -----------------------------
+// Scroll-trigger reveal
+// -----------------------------
+function setupScrollReveal() {
+    const targets = _qSA('.reveal-on-scroll');
+    if (!targets.length || !('IntersectionObserver' in window)) {
+        targets.forEach(el => el.classList.add('revealed'));
+        return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    targets.forEach(el => observer.observe(el));
+}
+
+// -----------------------------
 // Final Init
 // -----------------------------
 const yearEl = document.getElementById('year');
@@ -637,4 +655,5 @@ setBusinessLinks();
 loadProgress();
 setupSmsFeature();
 setupCalendar();
+setupScrollReveal();
 
