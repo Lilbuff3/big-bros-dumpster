@@ -4,11 +4,16 @@
 @source "../js/**/*.js";
 
 @theme {
-    --color-ink: #0B0F14;
-    --color-surface-1: #11161D;
-    --color-surface-2: #171D26;
-    --color-hairline: rgba(255, 255, 255, 0.08);
-    --color-brand: #FF5F00;
-    --color-brand-hover: #FF7A2A;
-    --color-brand-soft: #FFEDD5;
+    --color-ground: #F7F5EE;
+    --color-card: #FFFFFF;
+    --color-ink: #1F2A22;
+    --color-stone: #66716A;
+    --color-hairline: #DEE3D6;
+    --color-orange: #B9713F;
+    --color-orange-deep: #96582E;
+    --color-orange-wash: #F3E6D8;
+    --color-green: #3F6E52;
+    --color-green-wash: #E6EDE3;
+    --color-forest: #1B3A2C;
+    --color-forest-deep: #12261D;
 }
