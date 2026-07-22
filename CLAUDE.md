@@ -36,7 +36,7 @@ Calm concierge in a gritty industry: empathetic, transparent, hyper-local, appro
 
 ## Pricing copy rules
 
-Flat rates are **published**: 14-yard **$399 flat**, 20-yard **$499 flat** — 7-day rental, delivery, pickup, disposal, and mattresses/appliances/furniture included. Always pair with the protection line: "Includes up to 2 tons. Dirt, concrete, and roofing are quoted up front." If rates change, update: visible prices (search `$399`/`$499`), `pricing.*` i18n values (EN+ES), JSON-LD Offer `price` fields, and meta descriptions.
+Flat rates are **published**: 14-yard **$399 flat**, 20-yard **$499 flat** — 7-day rental, delivery, pickup, disposal, and mattresses/appliances/furniture included. Always pair with the protection line: "Includes up to 1 ton. Dirt, concrete, and roofing are quoted up front." If rates change, update: visible prices (search `$399`/`$499`), `pricing.*` i18n values (EN+ES), JSON-LD Offer `price` fields, and meta descriptions.
 
 ## The three differentiators
 
