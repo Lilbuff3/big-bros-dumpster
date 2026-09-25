@@ -79,13 +79,14 @@ const stepLabel = _qS("#stepLabel");
 const stepNum = _qS("#stepNum");
 const progress = _qS("#progress");
 const nextBtn = _qS("#nextBtn");
+const toStep3 = _qS("#toStep3");
 const toStep4 = _qS("#toStep4");
 const form = _qS("#quoteForm");
 
 const steps = _qSA(".step");
 let step = 1;
 
-const stepNames = { 1: "Location", 2: "Size", 3: "Details", 4: "Send" };
+const stepNames = { 1: "Size", 2: "Details", 3: "Location", 4: "Send" };
 
 // Service ZIP hints (not exhaustive)
 const coreZips = new Set([
@@ -101,9 +102,6 @@ function showStep(n) {
     if (stepNum) stepNum.textContent = String(step);
     if (stepLabel) stepLabel.textContent = stepNames[step] || "";
     if (progress) progress.style.width = `${(step / 4) * 100}%`;
-    if (nextBtn) {
-        nextBtn.classList.toggle('hidden', step >= 3);
-    }
 }
 
 function validateZip() {
@@ -180,7 +178,7 @@ function buildSummary() {
 function setSizeAndAdvance(val) {
     const sizeEl = _qS("#size");
     if (sizeEl) sizeEl.value = val;
-    showStep(3);
+    showStep(2);
 }
 
 function setDebris(val) {
@@ -193,17 +191,17 @@ function setDebris(val) {
 
 // Step nav
 nextBtn?.addEventListener('click', () => {
-    if (step === 1) {
-        if (!validateZip() || !requireField('zip')) return;
-        showStep(2);
-    } else if (step === 2) {
-        if (!requireField('size')) return;
-        showStep(3);
-    }
+    if (!requireField('size')) return;
+    showStep(2);
+});
+
+toStep3?.addEventListener('click', () => {
+    if (!requireField('debris')) return;
+    showStep(3);
 });
 
 toStep4?.addEventListener('click', () => {
-    if (!requireField('debris')) return;
+    if (!validateZip() || !requireField('zip')) return;
     showStep(4);
     buildSummary();
 });
@@ -222,7 +220,7 @@ _qSA(".sizeBtn").forEach(btn => {
         _qS("#size").value = val;
         _qSA(".sizeBtn").forEach(b => b.classList.remove("is-selected"));
         btn.classList.add("is-selected");
-        showStep(3);
+        showStep(2);
     });
 });
 
@@ -240,9 +238,8 @@ _qSA("[data-size-pick]").forEach(btn => {
         document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         showStep(1);
         setTimeout(() => {
-            showStep(2);
             _qS("#size").value = val;
-            showStep(3);
+            showStep(2);
         }, 450);
     });
 });
@@ -250,10 +247,9 @@ _qSA("[data-size-pick]").forEach(btn => {
 _qS("#select20")?.addEventListener('click', () => {
     const val = _qS("#select20")?.dataset.size || "14";
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    showStep(2);
     const sizeEl = _qS("#size");
     if (sizeEl) sizeEl.value = val;
-    showStep(3);
+    showStep(2);
 });
 
 // Lead persistence (save to localStorage)
@@ -328,10 +324,9 @@ _qS("#copyBtn")?.addEventListener('click', async () => {
 // Submit -> prefer SMS (mobile) else email
 form?.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (!requireField('zip') || !requireField('size') || !requireField('debris')) {
-        showStep(1);
-        return;
-    }
+    if (!requireField('size')) { showStep(1); return; }
+    if (!requireField('debris')) { showStep(2); return; }
+    if (!requireField('zip') || !validateZip()) { showStep(3); return; }
     const summary = buildSummary();
     const msg = `Big Bros Dumpster Quote Request\n${summary}`;
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
