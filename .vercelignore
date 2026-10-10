@@ -1,0 +1,6 @@
+# Vercel serves this repo's root as the site (outputDirectory "."); keep internal files off it.
+*.md
+.agents/
+.claude/
+skills/
+skills-lock.json
